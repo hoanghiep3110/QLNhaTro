@@ -15,7 +15,6 @@
         android:src="@drawable/nhatro"/>
 
     <EditText
-        android:drawableLeft="@drawable/ic_baseline_supervised_user_circle_24"
         android:layout_width="400dp"
         android:layout_gravity="center"
         android:layout_marginTop="60sp"
@@ -23,18 +22,29 @@
         android:textSize="20sp"
         android:background="@drawable/background"
         android:id="@+id/edtTk"
-        android:hint="  Username"/>
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:hint="Username"/>
 
-    <EditText
-        android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
-        android:id="@+id/edtMk"
-        android:layout_width="400dp"
-        android:layout_height="60sp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/background"
-        android:hint="  Password"
-        android:textSize="20sp" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+
+            android:id="@+id/edtMk"
+            android:inputType="textPassword"
+            android:layout_width="400dp"
+            android:layout_height="60sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:drawablePadding="10dp"
+            android:background="@drawable/background"
+            android:hint="Password"
+            android:textSize="20sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/btnDn"
