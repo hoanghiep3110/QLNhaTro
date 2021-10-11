@@ -15,46 +15,62 @@
         android:src="@drawable/nhatro"/>
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
+        android:drawableLeft="@drawable/ic_baseline_supervised_user_circle_24"
+        android:layout_width="400dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="60sp"
+        android:layout_height="60sp"
+        android:textSize="20sp"
+        android:background="@drawable/background"
         android:id="@+id/edtTk"
-        android:hint="Tên nhà trọ"/>
+        android:hint="  Username"/>
+
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
+        android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
         android:id="@+id/edtMk"
-        android:hint="Mật khẩu"/>
+        android:layout_width="400dp"
+        android:layout_height="60sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/background"
+        android:hint="  Password"
+        android:textSize="20sp" />
+
     <Button
         android:id="@+id/btnDn"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="Đăng nhập"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:background="@color/purple_200"
-        android:layout_marginTop="20dp"
-        android:textSize="30sp" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Hoặc"
-        android:textSize="30sp"
-        android:gravity="center"
-        />
-    <Button
-        android:id="@+id/btnDk"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Đăng kí"
         android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/botronedittext"
+        android:backgroundTint="@color/blue2"
         android:gravity="center"
-        android:background="@color/blue"
-        android:layout_marginTop="10dp"
-        android:textSize="30sp" />
+        android:text="Đăng nhập"
+        android:textSize="20dp" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bạn chưa có tài khoản "
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/tvRegisterHere"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Đăng kí ngay"
+            android:textColor="@color/blue2"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
 
 </LinearLayout>
