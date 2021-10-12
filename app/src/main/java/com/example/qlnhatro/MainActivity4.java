@@ -30,8 +30,8 @@ public class MainActivity4 extends AppCompatActivity {
         rclApartmentList = findViewById(R.id.rclApartmentList);
 
         alApartment = new ArrayList<>();
-        for (int i = 1; i < 50; i++) {
-            alApartment.add(new Apartment("Ten Phong " +i,"Ten Khach"+i));
+        for (int i = 1; i < 6; i++) {
+            alApartment.add(new Apartment("Phòng " +i,"Khach "+i));
         }
 
         rclApartmentList.setHasFixedSize(true);

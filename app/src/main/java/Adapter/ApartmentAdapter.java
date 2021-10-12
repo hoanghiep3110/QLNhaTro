@@ -20,10 +20,10 @@ import House.Apartment;
 
 public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.ViewHolder> {
 
-    private ArrayList<Apartment> alApartmen;
+    private ArrayList<Apartment> alApartment;
 
     public ApartmentAdapter(ArrayList<Apartment> alApartment, Context context) {
-        this.alApartmen = alApartmen;
+        this.alApartment = alApartment;
         this.context = context;
     }
 
@@ -39,8 +39,8 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.txtTenkhach.setText(alApartmen.get(position).getTenKhach());
-        holder.txtTenphong.setText(alApartmen.get(position).getTenPhong());
+        holder.txtTenkhach.setText(alApartment.get(position).getTenKhach());
+        holder.txtTenphong.setText(alApartment.get(position).getTenPhong());
         holder.btnDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,7 +51,7 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.View
 
     @Override
     public int getItemCount() {
-        return alApartmen.size();
+        return alApartment.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
@@ -67,4 +67,6 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.View
             btnDetails = itemView.findViewById(R.id.btnDetails);
         }
     }
+
+    Apartment apt = alApartment.get(2);
 }
