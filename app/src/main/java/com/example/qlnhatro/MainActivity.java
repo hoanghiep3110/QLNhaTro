@@ -42,14 +42,14 @@ public class MainActivity extends AppCompatActivity {
         btnDn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String taikhoan = edtUser.getText().toString();
-                String matkhau = edtPass.getText().toString();
+                String user = edtUser.getText().toString();
+                String pass = edtPass.getText().toString();
                 Cursor cursor = db.getAllAccount();
                 while (cursor.moveToNext()) {
-                    String dattaikhoan = cursor.getString(cursor.getColumnNames());
-                    String datmatkhau = cursor.getColumnName(5);
-                    if (dattaikhoan.equals(taikhoan) && datmatkhau.equals(matkhau)) {
-                        String ten = cursor.getString(2);
+                    String taikhoan = cursor.getString(4);
+                    String matkhau = cursor.getString(5);
+                    if (taikhoan.equals(user) && matkhau.equals(pass)) {
+                        String ten = cursor.getString(1);
                         Intent intent = new Intent(MainActivity.this, MainActivity4.class);
                         intent.putExtra("ten", ten);
                         startActivity(intent);
