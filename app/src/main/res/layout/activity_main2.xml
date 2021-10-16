@@ -31,7 +31,7 @@
             android:layout_marginTop="40dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputEditTextName"
+                android:id="@+id/edtTen"
                 android:background="@color/colorBackground"
                 android:textColorHint="@color/red"
                 android:layout_width="match_parent"
@@ -49,7 +49,7 @@
             android:layout_marginTop="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputEditTextEmail"
+                android:id="@+id/edtSdt"
                 android:background="@color/colorBackground"
                 android:textColorHint="@color/white"
                 android:layout_width="match_parent"
@@ -67,7 +67,7 @@
             android:layout_marginTop="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputEditTextAddress"
+                android:id="@+id/edtDc"
                 android:background="@color/colorBackground"
                 android:textColorHint="@color/white"
                 android:layout_width="match_parent"
@@ -85,13 +85,13 @@
             android:layout_marginTop="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputEditTextPassword"
+                android:id="@+id/edtTk"
                 android:background="@color/colorBackground"
                 android:textColorHint="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nhập tên tài khoản"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:maxLines="1"
                 android:textColor="@android:color/white" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -103,19 +103,19 @@
             android:layout_marginTop="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputEditTextConfirmPassword"
+                android:id="@+id/edtMk"
                 android:background="@color/colorBackground"
                 android:textColorHint="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nhập mật khâỉ"
+                android:hint="Nhập mật khẩu"
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:textColor="@android:color/white" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/appCompatButtonRegister"
+            android:id="@+id/btnDk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
