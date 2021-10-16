@@ -12,5 +12,7 @@
     <color name="blue2">#39A2DB</color>
     <color name="blue3">#A2DBFA</color>
     <color name="gray">#E8F0F2</color>
+    <color name="colorBackground">#34363E</color>
+    <color name="red">#E81708</color>
 
 </resources>

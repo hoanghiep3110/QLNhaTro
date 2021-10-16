@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,13 +24,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        init();
 
-        edtUser = findViewById(R.id.edtTk);
-        edtPass = findViewById(R.id.edtMk);
-        txtDk = findViewById(R.id.tvRegisterHere);
-        btnDn = findViewById(R.id.btnDn1);
-
-        db = new Account(this);
 
         txtDk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,25 +38,39 @@ public class MainActivity extends AppCompatActivity {
         btnDn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String user = edtUser.getText().toString();
-                String pass = edtPass.getText().toString();
-                Cursor cursor = db.getAllAccount();
-                while (cursor.moveToNext()) {
-                    String taikhoan = cursor.getString(4);
-                    String matkhau = cursor.getString(5);
-                    if (taikhoan.equals(user) && matkhau.equals(pass)) {
-                        String ten = cursor.getString(1);
-                        Intent intent = new Intent(MainActivity.this, MainActivity4.class);
-                        intent.putExtra("ten", ten);
-                        startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this, MainActivity3.class);
+//                startActivity(intent);
 
-                    }
+                if(db.checkUser(edtUser.getText().toString().trim(),edtPass.getText().toString().trim())){
+                Intent intent = new Intent(MainActivity.this, MainActivity3.class);
+                startActivity(intent);
                 }
-                cursor.moveToFirst();
-                db.close();
+
+//                Cursor cursor = db.getAllAccount();
 //
-            }
+//                while (cursor.moveToNext()) {
+//                    String username = cursor.getString(4);
+//                    String password = cursor.getString(5);
+//                    if (username.equals(user) && password.equals(pass)) {
+//                        String ten = cursor.getString(1);
+//                        Log.e( "onClick: ",null );
+//                        Intent intent = new Intent(MainActivity.this, MainActivity3.class);
+//                        intent.putExtra("ten", ten);
+//                        startActivity(intent);
+//                    }
+//                }
+//                cursor.moveToFirst();
+//                db.close();
+         }
         });
+    }
+    public void init(){
+        edtUser = findViewById(R.id.edtTk);
+        edtPass = findViewById(R.id.edtMk);
+        txtDk = findViewById(R.id.tvRegisterHere);
+        btnDn = findViewById(R.id.btnDn1);
+
+        db = new Account(this);
     }
 
 }
