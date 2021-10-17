@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import Database.Account;
 import House.Accounts;
@@ -40,11 +41,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                Intent intent = new Intent(MainActivity.this, MainActivity3.class);
 //                startActivity(intent);
-
-                if(db.checkUser(edtUser.getText().toString().trim(),edtPass.getText().toString().trim())){
-                Intent intent = new Intent(MainActivity.this, MainActivity3.class);
-                startActivity(intent);
+                if(edtUser.getText().toString().trim().equals("")||edtPass.getText().toString().trim().equals("")){
+                    Toast.makeText(MainActivity.this,"Vui Lòng nhập đủ thông tin",Toast.LENGTH_SHORT).show();
                 }
+                else {
+                    if(db.checkUser(edtUser.getText().toString().trim(),edtPass.getText().toString().trim())){
+                        Intent intent = new Intent(MainActivity.this, MainActivity3.class);
+                        startActivity(intent);
+                    }
+                    else {
+                        Toast.makeText(MainActivity.this,"Tài khoản hoặc mật khẩu không đúng",Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
 
 //                Cursor cursor = db.getAllAccount();
 //
@@ -61,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 //                }
 //                cursor.moveToFirst();
 //                db.close();
-         }
+
         });
     }
     public void init(){
