@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-
+        db = new Account(this);
 
         txtDk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,13 +39,14 @@ public class MainActivity extends AppCompatActivity {
         btnDn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, MainActivity3.class);
-//                startActivity(intent);
                 if(edtUser.getText().toString().trim().equals("")||edtPass.getText().toString().trim().equals("")){
                     Toast.makeText(MainActivity.this,"Vui Lòng nhập đủ thông tin",Toast.LENGTH_SHORT).show();
                 }
                 else {
+
                     if(db.checkUser(edtUser.getText().toString().trim(),edtPass.getText().toString().trim())){
+                        edtUser.setText("");
+                        edtPass.setText("");
                         Intent intent = new Intent(MainActivity.this, MainActivity3.class);
                         startActivity(intent);
                     }
