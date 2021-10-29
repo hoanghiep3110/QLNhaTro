@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">QLNhaTro</string>
+    <string name="Motel">Phòng trọ</string>
+    <string name="service">Dịch vụ</string>
+
+    <string name="nav_draw">Open navigation drawer</string>
+    <string name="nav_draw1">Close navigation drawer</string>
+
 </resources>

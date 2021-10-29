@@ -1,50 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
+    android:id="@+id/drawerlayout"
     tools:context=".MainActivity">
 
-    <TextView
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:orientation="vertical"
+       android:layout_height="match_parent">
+       <com.google.android.material.appbar.AppBarLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+           <androidx.appcompat.widget.Toolbar
+               android:layout_width="match_parent"
+               android:layout_height="?attr/actionBarSize"
+               android:background="#F44336"
+               android:theme="@style/Theme.AppCompat.Light"
+               android:id="@+id/toolbar"/>
+       </com.google.android.material.appbar.AppBarLayout>
+
+       <FrameLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:id="@+id/content_frame"/>
+   </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Thêm phòng trọ"
-        android:textSize="40sp"
-        android:layout_gravity="center"
-        android:layout_marginTop="60dp"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_marginTop="40dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/edtHoten"
-        android:hint="Nhập họ và tên"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/edtCCCN"
-        android:hint="Nhập CMND/CCCN"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/edtDc"
-        android:hint="Nhập quê quán"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/edtSdt"
-        android:hint="Nhập số điện thoại"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        app:backgroundTint="@null"
-        android:background="#9C27B0"
-        android:id="@+id/btnDk"
-        android:text="Đăng kí"/>
+        android:layout_height="match_parent"
+        android:id="@+id/navigation"
+        app:headerLayout="@layout/layout_header_nav"
+        android:layout_gravity="start"
+        app:menu="@menu/menu_nav"/>
 
 
 
-</LinearLayout>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
