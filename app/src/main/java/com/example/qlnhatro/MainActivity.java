@@ -3,30 +3,27 @@ package com.example.qlnhatro;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import Database.Account;
-import House.Accounts;
+import com.example.qlnhatro.Database.Database;
 
 public class MainActivity extends AppCompatActivity {
     private EditText edtUser, edtPass;
     private TextView txtDk;
     private Button btnDn;
-    Account db;
+    Database db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         init();
-        db = new Account(this);
+        db = new Database(this);
 
         txtDk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         txtDk = findViewById(R.id.tvRegisterHere);
         btnDn = findViewById(R.id.btnDn1);
 
-        db = new Account(this);
+        db = new Database(this);
     }
 
 }

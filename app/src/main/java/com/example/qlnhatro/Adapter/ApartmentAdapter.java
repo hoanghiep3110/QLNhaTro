@@ -1,4 +1,4 @@
-package Adapter;
+package com.example.qlnhatro.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -16,14 +16,14 @@ import com.example.qlnhatro.R;
 
 import java.util.ArrayList;
 
-import House.Apartment;
+import com.example.qlnhatro.House.Room;
 
 public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.ViewHolder> {
 
-    private ArrayList<Apartment> alApartment;
+    private ArrayList<Room> alRoom;
 
-    public ApartmentAdapter(ArrayList<Apartment> alApartment, Context context) {
-        this.alApartment = alApartment;
+    public ApartmentAdapter(ArrayList<Room> alRoom, Context context) {
+        this.alRoom = alRoom;
         this.context = context;
     }
 
@@ -39,8 +39,8 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.txtTenkhach.setText(alApartment.get(position).getTenKhach());
-        holder.txtTenphong.setText(alApartment.get(position).getTenPhong());
+//        holder.txtTenkhach.setText(alRoom.get(position).getTenKhach());
+//        holder.txtTenphong.setText(alRoom.get(position).getTenPhong());
         holder.btnDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,7 +51,7 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.View
 
     @Override
     public int getItemCount() {
-        return alApartment.size();
+        return alRoom.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
@@ -68,5 +68,5 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.View
         }
     }
 
-    Apartment apt = alApartment.get(2);
+    Room apt = alRoom.get(2);
 }

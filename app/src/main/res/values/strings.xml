@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">QLNhaTro</string>
-    <string name="Motel">Phòng trọ</string>
-    <string name="service">Dịch vụ</string>
+    <string name="Motel">Quản lý phòng trọ</string>
+    <string name="service">Quản lý dịch vụ</string>
+    <string name="customer">Quản lý khách hàng</string>
+    <string name="invoice">Hóa đơn dịch vụ</string>
+    <string name="contact">Quản lý hợp động</string>
+    <string name="information">Thông tin</string>
+    <string name="logout">Đăng xuất</string>
 
     <string name="nav_draw">Open navigation drawer</string>
     <string name="nav_draw1">Close navigation drawer</string>

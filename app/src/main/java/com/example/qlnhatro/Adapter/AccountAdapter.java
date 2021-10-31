@@ -1,4 +1,4 @@
-package Adapter;
+package com.example.qlnhatro.Adapter;
 
 import android.content.Context;
 import android.view.View;
@@ -7,21 +7,21 @@ import android.widget.BaseAdapter;
 
 import java.util.List;
 
-import Database.Account;
+import com.example.qlnhatro.Database.Database;
 
 public class AccountAdapter extends BaseAdapter {
 
-    private List<Account> listAccount;
+    private List<Database> listDatabase;
     private Context context;
 
-    public AccountAdapter(Context context, List<Account> listAcc) {
+    public AccountAdapter(Context context, List<Database> listAcc) {
         this.context = context;
-        this.listAccount = listAcc;
+        this.listDatabase = listAcc;
     }
 
     @Override
     public int getCount() {
-        return listAccount.size();
+        return listDatabase.size();
     }
 
     @Override

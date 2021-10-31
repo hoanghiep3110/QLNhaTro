@@ -1,4 +1,4 @@
-package Database;
+package com.example.qlnhatro.Database;
 
 
 import android.content.ContentValues;
@@ -7,14 +7,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
-
-import House.Accounts;
+import com.example.qlnhatro.House.Accounts;
 
 
 
 
-public class Account extends SQLiteOpenHelper {
+public class Database extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "ApartmentManager";
     private static final int VERSION = 1;
 
@@ -28,7 +26,7 @@ public class Account extends SQLiteOpenHelper {
 
 
 
-    public Account(Context context) {
+    public Database(Context context) {
         super(context, DATABASE_NAME, null, VERSION);
     }
 

@@ -5,13 +5,19 @@
       <map>
         <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/drawable/botronedittext.xml" value="0.28615384615384615" />
         <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/drawable/ic_baseline_remove_red_eye_24.xml" value="0.290625" />
+        <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/drawable/ic_baseline_supervised_user_circle_24.xml" value="0.2703125" />
         <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/layout/activity_main2.xml" value="0.25" />
         <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/layout/activity_main3.xml" value="0.1" />
         <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/layout/activity_main4.xml" value="0.264" />
         <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/layout/apartment_item.xml" value="0.2604166666666667" />
         <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/layout/home.xml" value="0.2604166666666667" />
+        <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/layout/layout_contact.xml" value="0.1609375" />
+        <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/layout/layout_customer.xml" value="0.17291666666666666" />
         <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/layout/layout_header_nav.xml" value="0.22554347826086957" />
+        <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/layout/layout_invoice.xml" value="0.1609375" />
+        <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/layout/layout_room.xml" value="0.1609375" />
+        <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/layout/layout_service.xml" value="0.1609375" />
         <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/layout/list_item_account.xml" value="0.14945652173913043" />
         <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/menu/menu_nav.xml" value="0.25416666666666665" />
         <entry key="..\:/QLNhaTro/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.35625" />

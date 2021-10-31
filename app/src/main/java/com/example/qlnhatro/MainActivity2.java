@@ -2,20 +2,15 @@ package com.example.qlnhatro;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import Database.Account;
-import House.Accounts;
 
-import java.util.ArrayList;
-import java.util.List;
-import android.database.sqlite.SQLiteOpenHelper;
+import com.example.qlnhatro.Database.Database;
+import com.example.qlnhatro.House.Accounts;
+
 import android.widget.Toast;
 
 
@@ -24,7 +19,7 @@ public class MainActivity2 extends AppCompatActivity {
     private EditText edtTen,edtDc,edtSdt,edtTK,edtMk;
     private Button btnDk;
 
-    Account db;
+    Database db;
 
 
     @Override
@@ -38,7 +33,7 @@ public class MainActivity2 extends AppCompatActivity {
         edtTK = findViewById(R.id.edtTk);
         edtMk = findViewById(R.id.edtMk);
         btnDk = findViewById(R.id.btnDk);
-        db = new Account(this);
+        db = new Database(this);
 
         btnDk.setOnClickListener(new View.OnClickListener() {
             @Override
