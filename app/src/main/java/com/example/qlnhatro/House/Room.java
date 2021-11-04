@@ -3,7 +3,7 @@ package com.example.qlnhatro.House;
 public class Room {
     private int idPhong;
     private String nameRoom;
-    private String status;
+    private boolean status;
 
     public int getIdPhong() {
         return idPhong;
@@ -21,15 +21,15 @@ public class Room {
         this.nameRoom = nameRoom;
     }
 
-    public String getStatus() {
+    public boolean isStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 
-    public Room(int idPhong, String nameRoom, String status) {
+    public Room(int idPhong, String nameRoom, boolean status) {
         this.idPhong = idPhong;
         this.nameRoom = nameRoom;
         this.status = status;
