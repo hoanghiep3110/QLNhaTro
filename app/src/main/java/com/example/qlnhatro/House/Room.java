@@ -17,6 +17,11 @@ public class Room {
         return nameRoom;
     }
 
+    public Room(int idPhong, String nameRoom) {
+        this.idPhong = idPhong;
+        this.nameRoom = nameRoom;
+    }
+
     public void setNameRoom(String nameRoom) {
         this.nameRoom = nameRoom;
     }

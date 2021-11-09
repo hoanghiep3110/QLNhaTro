@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,9 +40,9 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-//        holder.txtTenkhach.setText(alRoom.get(position).getTenKhach());
-//        holder.txtTenphong.setText(alRoom.get(position).getTenPhong());
-        holder.btnDetails.setOnClickListener(new View.OnClickListener() {
+        holder.txtTenphong.setText(alRoom.get(position).getNameRoom());
+        //holder.txtTrangthai.setText(alRoom.get(position).get());
+        holder.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(context,"Đang chọn nút" + (holder.getAdapterPosition()+1),Toast.LENGTH_SHORT).show();
@@ -56,17 +57,19 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.View
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView txtTenphong,txtTenkhach;
-        public Button btnDetails;
+        public TextView txtTenphong,txtTrangthai;
+        public ImageButton btnEdit,btnDelete;
 
         public ViewHolder(@NonNull View itemView){
             super(itemView);
 
             txtTenphong = itemView.findViewById(R.id.txtTenphong);
-            txtTenkhach = itemView.findViewById(R.id.txtTenkhach);
-            btnDetails = itemView.findViewById(R.id.btnDetails);
+            txtTrangthai = itemView.findViewById(R.id.txtTrangthai);
+            btnEdit = itemView.findViewById(R.id.btnEdit);
+            btnDelete = itemView.findViewById(R.id.btnDelete);
+
         }
     }
 
-    Room apt = alRoom.get(2);
+    //Room apt = alRoom.get(2);
 }

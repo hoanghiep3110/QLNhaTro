@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/drawable/botronedittext.xml" value="0.28615384615384615" />
+        <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/drawable/ic_baseline_delete.xml" value="0.1984375" />
+        <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/drawable/ic_baseline_edit.xml" value="0.1984375" />
         <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/drawable/ic_baseline_remove_red_eye_24.xml" value="0.290625" />
         <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/drawable/ic_baseline_supervised_user_circle_24.xml" value="0.2703125" />
         <entry key="..\:/HocTap/QLNhaTro/app/src/main/res/layout/activity_main.xml" value="0.264" />

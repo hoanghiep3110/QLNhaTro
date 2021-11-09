@@ -37,22 +37,28 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txtTenkhach"
+                android:id="@+id/txtTrangthai"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nguyen Van A"
+                android:text="Trạng thái"
                 android:textSize="14sp"
                 android:textStyle="italic" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:text="Details"
-            android:textSize="12sp" />
+        <ImageButton
+            android:id="@+id/btnEdit"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_baseline_edit"
+            android:backgroundTint="#4CAF50"/>
+        <ImageButton
+            android:id="@+id/btnDelete"
+            android:layout_width="50dp"
+            android:layout_marginLeft="4dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_baseline_delete"
+            android:backgroundTint="#FF5722"/>
+
     </LinearLayout>
 
 

@@ -1,6 +1,7 @@
 package com.example.qlnhatro;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -16,29 +17,30 @@ public class MainActivity4 extends AppCompatActivity {
     private Button btnChange;
     private ArrayList<Room> alRoom;
 
-    private RecyclerView rclApartmentList;
-    private ApartmentAdapter apartmentAdapter;
+
+    private RecyclerView rclRoomList;
+    private ApartmentAdapter roomAdapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main4);
+        setContentView(R.layout.layout_room);
 
-//        rclApartmentList = findViewById(R.id.rclApartmentList);
-//
-//        alApartment = new ArrayList<>();
-//        for (int i = 1; i < 6; i++) {
-//            alApartment.add(new Apartment("Phòng " +i,"Khach "+i));
-//        }
-//
-//        rclApartmentList.setHasFixedSize(true);
-//
-//        apartmentAdapter = new ApartmentAdapter(alApartment,this);
-//
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);
-//
-//        rclApartmentList.setLayoutManager(linearLayoutManager);
-//        rclApartmentList.setAdapter(apartmentAdapter);
+        rclRoomList = findViewById(R.id.rclRoomList);
+
+        alRoom = new ArrayList<>();
+        for (int i = 1; i < 6; i++) {
+            alRoom.add(new Room(i,"Ten Phong " + i));
+        }
+
+        rclRoomList.setHasFixedSize(true);
+
+        roomAdapter = new ApartmentAdapter(alRoom,this);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);
+
+        rclRoomList.setLayoutManager(linearLayoutManager);
+        rclRoomList.setAdapter(roomAdapter);
     }
 }
