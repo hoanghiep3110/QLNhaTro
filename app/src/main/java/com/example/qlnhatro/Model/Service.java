@@ -1,4 +1,4 @@
-package com.example.qlnhatro.House;
+package com.example.qlnhatro.Model;
 
 public class Service {
     private int idService,donGia;

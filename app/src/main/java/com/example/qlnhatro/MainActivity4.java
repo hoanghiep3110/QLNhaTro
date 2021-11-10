@@ -10,7 +10,7 @@ import android.widget.Button;
 import java.util.ArrayList;
 
 import com.example.qlnhatro.Adapter.ApartmentAdapter;
-import com.example.qlnhatro.House.Room;
+import com.example.qlnhatro.Model.Room;
 
 public class MainActivity4 extends AppCompatActivity {
 

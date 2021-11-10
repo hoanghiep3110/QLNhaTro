@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.qlnhatro.Database.Database;
-import com.example.qlnhatro.House.Accounts;
+import com.example.qlnhatro.Model.Accounts;
 
 import android.widget.Toast;
 
