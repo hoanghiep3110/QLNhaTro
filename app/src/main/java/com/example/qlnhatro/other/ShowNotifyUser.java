@@ -2,7 +2,6 @@ package com.example.qlnhatro.other;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-
 public class ShowNotifyUser {
     private static ProgressDialog mProgressDialog;
 

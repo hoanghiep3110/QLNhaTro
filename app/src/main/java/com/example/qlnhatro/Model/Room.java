@@ -1,43 +1,38 @@
 package com.example.qlnhatro.Model;
 
 public class Room {
-    private int idPhong;
-    private String nameRoom;
-    private boolean status;
+    private int IdPhong;
+    private String TenPhong;
+    private boolean TrangThai;
 
     public int getIdPhong() {
-        return idPhong;
+        return IdPhong;
     }
 
     public void setIdPhong(int idPhong) {
-        this.idPhong = idPhong;
+        IdPhong = idPhong;
     }
 
-    public String getNameRoom() {
-        return nameRoom;
+    public String getTenPhong() {
+        return TenPhong;
     }
 
-    public Room(int idPhong, String nameRoom) {
-        this.idPhong = idPhong;
-        this.nameRoom = nameRoom;
+    public void setTenPhong(String tenPhong) {
+        TenPhong = tenPhong;
     }
 
-    public void setNameRoom(String nameRoom) {
-        this.nameRoom = nameRoom;
+    public boolean isTrangThai() {
+        return TrangThai;
     }
 
-    public boolean isStatus() {
-        return status;
+    public void setTrangThai(boolean trangThai) {
+        TrangThai = trangThai;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
-    public Room(int idPhong, String nameRoom, boolean status) {
-        this.idPhong = idPhong;
-        this.nameRoom = nameRoom;
-        this.status = status;
+    public Room(int idPhong, String tenPhong, boolean trangThai) {
+        IdPhong = idPhong;
+        TenPhong = tenPhong;
+        TrangThai = trangThai;
     }
 
     public Room() {

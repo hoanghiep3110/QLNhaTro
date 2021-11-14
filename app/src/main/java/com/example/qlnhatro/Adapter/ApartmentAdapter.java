@@ -1,24 +1,19 @@
 package com.example.qlnhatro.Adapter;
 
-import static com.example.qlnhatro.Service.ServiceAPI.BASE_Service;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
+import com.example.qlnhatro.Model.Room;
 import com.example.qlnhatro.R;
 
 import java.util.ArrayList;
-
-import com.example.qlnhatro.Model.Room;
 
 
 public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.ViewHolder> {
@@ -42,8 +37,18 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.txtName.setText(alRoom.get(position).getNameRoom());
-        //holder.txtTrangthai.setText(alRoom.get(position).get());
+        holder.txtName.setText(alRoom.get(position).getTenPhong());
+        Boolean b = alRoom.get(position).isTrangThai();
+        String str = Boolean.toString(b);
+        if( str == "true")
+        {
+            holder.txtStatus.setText("Đã có người thuê");
+
+        }
+        else {
+            holder.txtStatus.setText("Phòng đang trống");
+        }
+
     }
 
     @Override

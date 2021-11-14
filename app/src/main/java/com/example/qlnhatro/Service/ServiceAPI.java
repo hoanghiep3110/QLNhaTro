@@ -9,7 +9,7 @@ import retrofit2.http.GET;
 
 
 public interface ServiceAPI {
-    String BASE_Service = "https://192.168.1.16:26620/";
+    String BASE_Service = " https://c85a-2402-800-638a-b251-751a-c54a-359-2cb2.ngrok.io/";
 
     @GET("api/PHONG")
     Observable<ArrayList<Room>> GetAllRoom();
