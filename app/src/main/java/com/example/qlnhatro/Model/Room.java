@@ -35,6 +35,7 @@ public class Room {
         TrangThai = trangThai;
     }
 
+
     public Room() {
     }
 }

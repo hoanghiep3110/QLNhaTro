@@ -2,12 +2,19 @@ package com.example.qlnhatro.Fragment;
 
 import static com.example.qlnhatro.Service.ServiceAPI.BASE_Service;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -45,17 +52,13 @@ public class RoomFragment extends Fragment {
         View view = inflater.inflate(R.layout.layout_room, container, false);
         rclRoomList = view.findViewById(R.id.rclRoomList);
         btnAdd = view.findViewById(R.id.btnAdd);
-//        alRoom = new ArrayList<>();
-//        for (int i = 1; i < 10; i++) {
-//            alRoom.add(new Room(i, "Ten Phong " + i));
-//        }
-//        rclRoomList.setHasFixedSize(true);
-//        roomAdapter = new ApartmentAdapter(alRoom, context);
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
-//        rclRoomList.setLayoutManager(linearLayoutManager);
-//        rclRoomList.setAdapter(roomAdapter);
-        //showProgressDialog(context, "Đang tải dữ liệu");
         getRoom();
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openCheckoutDialog(Gravity.CENTER);
+            }
+        });
         return view;
     }
 
@@ -85,11 +88,43 @@ public class RoomFragment extends Fragment {
         }
         //dismissProgressDialog();
     }
-
-
-
     private void handleError(Throwable error) {
         //dismissProgressDialog();
+    }
 
+    public void openCheckoutDialog(int gravity) {
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.addroom_dialog);
+        Window window = dialog.getWindow();
+        if (window == null) {
+            return;
+        }
+
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        EditText edtPhong = dialog.findViewById(R.id.edtPhong);
+        Button btnThem = dialog.findViewById(R.id.btnThem);
+        Button btnThoat = dialog.findViewById(R.id.btnThoat);
+
+        btnThoat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        btnThem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Room room = new Room(edtPhong.getText().toString());
+
+//                Intent intent = new Intent(RoomDetail.this,ListRoomActivity.class);
+//                startActivity(intent);
+//                finish();
+            }
+        });
+        dialog.show();
     }
 }

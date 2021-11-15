@@ -1,75 +1,71 @@
 package com.example.qlnhatro.Model;
 
 public class Customer {
-    private int idCustomer;
-    private String name,phone,gt,que,hktt;
-    private char cmnn;
+    private int IdKhachHang;
+    private String HoTen,Sdt,QueQuan,HKTT;
+    private String GioiTinh,SoCMND;
 
-    public int getIdCustomer() {
-        return idCustomer;
+    public Customer(int idKhachHang, String hoTen) {
+        IdKhachHang = idKhachHang;
+        HoTen = hoTen;
     }
 
-    public void setIdCustomer(int idCustomer) {
-        this.idCustomer = idCustomer;
+    public int getIdKhachHang() {
+        return IdKhachHang;
     }
 
-    public String getName() {
-        return name;
+    public void setIdKhachHang(int idKhachHang) {
+        IdKhachHang = idKhachHang;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getHoTen() {
+        return HoTen;
     }
 
-    public String getPhone() {
-        return phone;
+    public void setHoTen(String hoTen) {
+        HoTen = hoTen;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public String getSdt() {
+        return Sdt;
     }
 
-    public String getGt() {
-        return gt;
+    public void setSdt(String sdt) {
+        Sdt = sdt;
     }
 
-    public void setGt(String gt) {
-        this.gt = gt;
+    public String getQueQuan() {
+        return QueQuan;
     }
 
-    public String getQue() {
-        return que;
+    public void setQueQuan(String queQuan) {
+        QueQuan = queQuan;
     }
 
-    public void setQue(String que) {
-        this.que = que;
+    public String getHKTT() {
+        return HKTT;
     }
 
-    public String getHktt() {
-        return hktt;
+    public void setHKTT(String HKTT) {
+        this.HKTT = HKTT;
     }
 
-    public void setHktt(String hktt) {
-        this.hktt = hktt;
+    public String getGioiTinh() {
+        return GioiTinh;
     }
 
-    public char getCmnn() {
-        return cmnn;
+    public void setGioiTinh(String gioiTinh) {
+        GioiTinh = gioiTinh;
     }
 
-    public void setCmnn(char cmnn) {
-        this.cmnn = cmnn;
+    public String getSoCMND() {
+        return SoCMND;
     }
 
-    public Customer(int idCustomer, String name, String phone, String gt, String que, String hktt, char cmnn) {
-        this.idCustomer = idCustomer;
-        this.name = name;
-        this.phone = phone;
-        this.gt = gt;
-        this.que = que;
-        this.hktt = hktt;
-        this.cmnn = cmnn;
+    public void setSoCMND(String soCMND) {
+        SoCMND = soCMND;
     }
+
 
     public Customer() {
     }

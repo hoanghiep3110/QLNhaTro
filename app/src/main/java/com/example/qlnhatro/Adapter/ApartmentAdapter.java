@@ -15,7 +15,6 @@ import com.example.qlnhatro.R;
 
 import java.util.ArrayList;
 
-
 public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.ViewHolder> {
 
     private ArrayList<Room> alRoom;
@@ -40,15 +39,11 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.View
         holder.txtName.setText(alRoom.get(position).getTenPhong());
         Boolean b = alRoom.get(position).isTrangThai();
         String str = Boolean.toString(b);
-        if( str == "true")
-        {
+        if (str == "true") {
             holder.txtStatus.setText("Đã có người thuê");
-
-        }
-        else {
+        } else {
             holder.txtStatus.setText("Phòng đang trống");
         }
-
     }
 
     @Override
@@ -68,9 +63,35 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.View
             txtStatus = itemView.findViewById(R.id.txtTrangthai);
             btnEdit = itemView.findViewById(R.id.btnEdit);
             btnDelete = itemView.findViewById(R.id.btnDelete);
+
+            btnDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //DeleteRoom();
+                }
+            });
         }
+//        public void DeleteRoom(){
+//            ServiceAPI requestInterface = new Retrofit.Builder()
+//                    .baseUrl(BASE_Service)
+//                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//                    .addConverterFactory(GsonConverterFactory.create())
+//                    .build().create(ServiceAPI.class);
+//
+//            new CompositeDisposable().add(requestInterface.DeleteRoom(20)
+//                    .observeOn(AndroidSchedulers.mainThread())
+//                    .subscribeOn(Schedulers.io())
+//                    .subscribe(this::handleResponse, this::handleError)
+//            );
+//        }
+//
+//        private void handleError(Throwable throwable) {
+//        }
+//
+//        private void handleResponse(Void unused) {
+//        }
 
+
+        //Room apt = alRoom.get(2);
     }
-
-    //Room apt = alRoom.get(2);
 }
