@@ -1,6 +1,9 @@
 package com.example.qlnhatro.Adapter;
 
+
 import android.content.Context;
+import android.content.Intent;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,27 +13,28 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.qlnhatro.Detail.RoomDetailActivity;
+
 import com.example.qlnhatro.Model.Room;
 import com.example.qlnhatro.R;
 
 import java.util.ArrayList;
 
-public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.ViewHolder> {
+public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
 
     private ArrayList<Room> alRoom;
     private Context context;
 
-    public ApartmentAdapter(ArrayList<Room> alRoom, Context context) {
+    public RoomAdapter(ArrayList<Room> alRoom, Context context) {
         this.alRoom = alRoom;
         this.context = context;
     }
-
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.apartment_item, parent, false);
+                .inflate(R.layout.list_item_room, parent, false);
         return new ViewHolder(view);
     }
 
@@ -44,6 +48,17 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.View
         } else {
             holder.txtStatus.setText("Phòng đang trống");
         }
+
+        holder.btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = (holder.getAdapterPosition());
+                int id = alRoom.get(position).getIdPhong();
+                Intent intent = new Intent(context, RoomDetailActivity.class);
+                intent.putExtra("id",id);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -55,6 +70,7 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.View
 
         public TextView txtName, txtStatus;
         public ImageButton btnEdit, btnDelete;
+        public Context context;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -64,6 +80,7 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.View
             btnEdit = itemView.findViewById(R.id.btnEdit);
             btnDelete = itemView.findViewById(R.id.btnDelete);
 
+
             btnDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -71,27 +88,5 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.View
                 }
             });
         }
-//        public void DeleteRoom(){
-//            ServiceAPI requestInterface = new Retrofit.Builder()
-//                    .baseUrl(BASE_Service)
-//                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-//                    .addConverterFactory(GsonConverterFactory.create())
-//                    .build().create(ServiceAPI.class);
-//
-//            new CompositeDisposable().add(requestInterface.DeleteRoom(20)
-//                    .observeOn(AndroidSchedulers.mainThread())
-//                    .subscribeOn(Schedulers.io())
-//                    .subscribe(this::handleResponse, this::handleError)
-//            );
-//        }
-//
-//        private void handleError(Throwable throwable) {
-//        }
-//
-//        private void handleResponse(Void unused) {
-//        }
-
-
-        //Room apt = alRoom.get(2);
     }
 }

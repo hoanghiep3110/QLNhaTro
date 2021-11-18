@@ -1,5 +1,8 @@
 package com.example.qlnhatro.Fragment;
 
+import static com.example.qlnhatro.Service.ServiceAPI.BASE_Service;
+
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,13 +11,76 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.qlnhatro.Adapter.ServiceAdapter;
+import com.example.qlnhatro.Model.Service;
 import com.example.qlnhatro.R;
+import com.example.qlnhatro.Service.ServiceAPI;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+
+import java.util.ArrayList;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceFragment extends Fragment {
+
+    private ArrayList<Service> alService;
+
+    private RecyclerView rclServiceList;
+    private ServiceAdapter serviceAdapter;
+    private Context context;
+    private FloatingActionButton btnAdd;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.list_service,container,false);
+        View view =inflater.inflate(R.layout.list_service,container,false);
+        rclServiceList = view.findViewById(R.id.rclServiceList);
+        btnAdd = view.findViewById(R.id.btnAddService);
+        getService();
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        return view;
+    }
+
+    public void getService() {
+        ServiceAPI requestInterface = new Retrofit.Builder()
+                .baseUrl(BASE_Service)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build().create(ServiceAPI.class);
+
+        new CompositeDisposable().add(requestInterface.GetAllService()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(this::handleResponse, this::handleError)
+        );
+    }
+
+    private void handleResponse(ArrayList<Service> services) {
+        try {
+            rclServiceList.setHasFixedSize(true);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+            rclServiceList.setLayoutManager(linearLayoutManager);
+            serviceAdapter = new ServiceAdapter(services, context);
+            rclServiceList.setAdapter(serviceAdapter);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //dismissProgressDialog();
+    }
+    private void handleError(Throwable error) {
+        //dismissProgressDialog();
     }
 }

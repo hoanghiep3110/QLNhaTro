@@ -1,39 +1,38 @@
 package com.example.qlnhatro.Model;
 
 public class Service {
-    private int idService,donGia;
-    private String namService;
+    private int IdDichVu;
 
-    public int getIdService() {
-        return idService;
+    public Service(int idDichVu, int donGia, String tenDichVu) {
+        IdDichVu = idDichVu;
+        DonGia = donGia;
+        TenDichVu = tenDichVu;
     }
 
-    public void setIdService(int idService) {
-        this.idService = idService;
+    private int DonGia;
+    private String TenDichVu;
+
+    public int getIdDichVu() {
+        return IdDichVu;
+    }
+
+    public void setIdDichVu(int idDichVu) {
+        IdDichVu = idDichVu;
     }
 
     public int getDonGia() {
-        return donGia;
+        return DonGia;
     }
 
     public void setDonGia(int donGia) {
-        this.donGia = donGia;
+        DonGia = donGia;
     }
 
-    public String getNamService() {
-        return namService;
+    public String getTenDichVu() {
+        return TenDichVu;
     }
 
-    public void setNamService(String namService) {
-        this.namService = namService;
-    }
-
-    public Service(int idService, int donGia, String namService) {
-        this.idService = idService;
-        this.donGia = donGia;
-        this.namService = namService;
-    }
-
-    public Service() {
+    public void setTenDichVu(String tenDichVu) {
+        TenDichVu = tenDichVu;
     }
 }

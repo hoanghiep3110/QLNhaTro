@@ -7,13 +7,13 @@
     android:padding="20dp">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rclRoomList"
+        android:id="@+id/rclServiceList"
         android:layout_weight="10"
         android:layout_width="match_parent"
         android:layout_height="0dp"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnAdd"
+        android:id="@+id/btnAddService"
         android:src="@drawable/ic_add"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"

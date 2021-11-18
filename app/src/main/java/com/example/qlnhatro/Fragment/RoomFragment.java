@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.qlnhatro.Adapter.ApartmentAdapter;
+import com.example.qlnhatro.Adapter.RoomAdapter;
 import com.example.qlnhatro.Model.Room;
 import com.example.qlnhatro.R;
 import com.example.qlnhatro.Service.ServiceAPI;
@@ -35,7 +35,7 @@ public class RoomFragment extends Fragment {
     private ArrayList<Room> alRoom;
 
     private RecyclerView rclRoomList;
-    private ApartmentAdapter roomAdapter;
+    private RoomAdapter roomAdapter;
     private Context context;
     private FloatingActionButton btnAdd;
 
@@ -75,7 +75,7 @@ public class RoomFragment extends Fragment {
             rclRoomList.setHasFixedSize(true);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
             rclRoomList.setLayoutManager(linearLayoutManager);
-            roomAdapter = new ApartmentAdapter(rooms, context);
+            roomAdapter = new RoomAdapter(rooms, context);
             rclRoomList.setAdapter(roomAdapter);
         } catch (Exception e) {
             e.printStackTrace();
