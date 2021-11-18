@@ -2,6 +2,9 @@ package com.example.qlnhatro.other;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.widget.ProgressBar;
+
+import com.example.qlnhatro.R;
 
 
 
@@ -15,7 +18,6 @@ public class ShowNotifyUser {
         mProgressDialog.setCanceledOnTouchOutside(false);
         mProgressDialog.show();
     }
-
 
     public static void dismissProgressDialog() {
         mProgressDialog.dismiss();

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,7 +13,7 @@ import android.widget.Toast;
 
 import com.example.qlnhatro.Database.Database;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     private EditText edtUser, edtPass;
     private TextView txtDk;
     private Button btnDn;
@@ -28,8 +29,21 @@ public class MainActivity extends AppCompatActivity {
         txtDk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        edtPass.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                    if (event.getAction() == KeyEvent.ACTION_DOWN){
+                        btnDn.callOnClick();
+                    }
+                    return true;
+                }
+                return false;
             }
         });
 
@@ -37,39 +51,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(edtUser.getText().toString().trim().equals("")||edtPass.getText().toString().trim().equals("")){
-                    Toast.makeText(MainActivity.this,"Vui Lòng nhập đủ thông tin",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this,"Vui lòng nhập đủ thông tin",Toast.LENGTH_SHORT).show();
                 }
                 else {
 
                     if(db.checkUser(edtUser.getText().toString().trim(),edtPass.getText().toString().trim())){
                         edtUser.setText("");
                         edtPass.setText("");
-                        Intent intent = new Intent(MainActivity.this, MainActivity3.class);
+                        Intent intent = new Intent(LoginActivity.this, MenuDashboardActivity.class);
                         startActivity(intent);
                     }
                     else {
-                        Toast.makeText(MainActivity.this,"Tài khoản hoặc mật khẩu không đúng",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this,"Tài khoản hoặc mật khẩu không đúng",Toast.LENGTH_SHORT).show();
                     }
                 }
             }
-
-
-//                Cursor cursor = db.getAllAccount();
-//
-//                while (cursor.moveToNext()) {
-//                    String username = cursor.getString(4);
-//                    String password = cursor.getString(5);
-//                    if (username.equals(user) && password.equals(pass)) {
-//                        String ten = cursor.getString(1);
-//                        Log.e( "onClick: ",null );
-//                        Intent intent = new Intent(MainActivity.this, MainActivity3.class);
-//                        intent.putExtra("ten", ten);
-//                        startActivity(intent);
-//                    }
-//                }
-//                cursor.moveToFirst();
-//                db.close();
-
         });
     }
     public void init(){
@@ -77,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
         edtPass = findViewById(R.id.edtMk);
         txtDk = findViewById(R.id.tvRegisterHere);
         btnDn = findViewById(R.id.btnDn1);
-
         db = new Database(this);
     }
 

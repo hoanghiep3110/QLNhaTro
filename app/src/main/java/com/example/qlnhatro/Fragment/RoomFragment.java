@@ -4,17 +4,10 @@ import static com.example.qlnhatro.Service.ServiceAPI.BASE_Service;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,6 +19,7 @@ import com.example.qlnhatro.Adapter.ApartmentAdapter;
 import com.example.qlnhatro.Model.Room;
 import com.example.qlnhatro.R;
 import com.example.qlnhatro.Service.ServiceAPI;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.util.ArrayList;
@@ -43,20 +37,20 @@ public class RoomFragment extends Fragment {
     private RecyclerView rclRoomList;
     private ApartmentAdapter roomAdapter;
     private Context context;
-    private Button btnAdd;
+    private FloatingActionButton btnAdd;
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.layout_room, container, false);
+        View view = inflater.inflate(R.layout.list_room, container, false);
         rclRoomList = view.findViewById(R.id.rclRoomList);
         btnAdd = view.findViewById(R.id.btnAdd);
         getRoom();
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openCheckoutDialog(Gravity.CENTER);
+                openDialog();
             }
         });
         return view;
@@ -92,39 +86,40 @@ public class RoomFragment extends Fragment {
         //dismissProgressDialog();
     }
 
-    public void openCheckoutDialog(int gravity) {
+    public void openDialog() {
         final Dialog dialog = new Dialog(context);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.addroom_dialog);
-        Window window = dialog.getWindow();
-        if (window == null) {
-            return;
-        }
-
-        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-        EditText edtPhong = dialog.findViewById(R.id.edtPhong);
-        Button btnThem = dialog.findViewById(R.id.btnThem);
-        Button btnThoat = dialog.findViewById(R.id.btnThoat);
-
-        btnThoat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
-
-        btnThem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Room room = new Room(edtPhong.getText().toString());
-
-//                Intent intent = new Intent(RoomDetail.this,ListRoomActivity.class);
-//                startActivity(intent);
-//                finish();
-            }
-        });
         dialog.show();
+//        Window window = dialog.getWindow();
+//        if (window == null) {
+//            return;
+//        }
+
+//        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+//        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+//        EditText edtPhong = dialog.findViewById(R.id.edtPhong);
+//        Button btnThem = dialog.findViewById(R.id.btnThem);
+//        Button btnThoat = dialog.findViewById(R.id.btnThoat);
+//
+//        btnThoat.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        btnThem.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //Room room = new Room(edtPhong.getText().toString());
+//
+////                Intent intent = new Intent(RoomDetail.this,ListRoomActivity.class);
+////                startActivity(intent);
+////                finish();
+//            }
+//        });
+
     }
 }

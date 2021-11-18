@@ -10,25 +10,25 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ListView;
 
 import com.example.qlnhatro.Fragment.ContactFragment;
 import com.example.qlnhatro.Fragment.CustomerFragment;
+import com.example.qlnhatro.Fragment.InvoiceDetailFragment;
 import com.example.qlnhatro.Fragment.InvoiceFragment;
 import com.example.qlnhatro.Fragment.RoomFragment;
 import com.example.qlnhatro.Fragment.ServiceFragment;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity3 extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MenuDashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private static final int FRAGMENT_ROOM=0;
     private static final int FRAGMENT_CUSTOMER=1;
     private static final int FRAGMENT_SERVICE=2;
     private static final int FRAGMENT_INVOICE=3;
     private static final int FRAGMENT_CONTACT=4;
+    private static final int FRAGMENT_INVOICEDETAIL=5;
 
     private int mCurrentFragment = FRAGMENT_ROOM;
 
@@ -40,26 +40,23 @@ public class MainActivity3 extends AppCompatActivity implements NavigationView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
-
+        setContentView(R.layout.activity_home);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawerLayout = findViewById(R.id.drawerlayout);
 
         navigationView = findViewById(R.id.navigation);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,
-                R.string.nav_draw,R.string.nav_draw1);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nav_draw, R.string.nav_draw1);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView =findViewById(R.id.navigation);
+        NavigationView navigationView = findViewById(R.id.navigation);
         navigationView.setNavigationItemSelectedListener(this);
 
         replaceFragment(new RoomFragment());
         navigationView.getMenu().findItem(R.id.motel).setChecked(true);
     }
-
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -83,6 +80,11 @@ public class MainActivity3 extends AppCompatActivity implements NavigationView.O
             if(mCurrentFragment!=FRAGMENT_INVOICE){
                 replaceFragment(new InvoiceFragment());
                 mCurrentFragment=FRAGMENT_INVOICE;
+            }
+        }else if(id==R.id.invoicedetail){
+            if(mCurrentFragment!=FRAGMENT_INVOICEDETAIL){
+                replaceFragment(new InvoiceDetailFragment());
+                mCurrentFragment=FRAGMENT_INVOICEDETAIL;
             }
         }else if(id==R.id.contact){
             if(mCurrentFragment!=FRAGMENT_CONTACT){

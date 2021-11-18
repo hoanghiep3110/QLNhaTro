@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,17 +16,16 @@ import android.widget.Toast;
 
 
 
-public class MainActivity2 extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
     private EditText edtTen,edtDc,edtSdt,edtTK,edtMk;
     private Button btnDk;
 
     Database db;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_register);
 
         edtTen = findViewById(R.id.edtTen);
         edtDc = findViewById(R.id.edtDc);
@@ -34,6 +34,19 @@ public class MainActivity2 extends AppCompatActivity {
         edtMk = findViewById(R.id.edtMk);
         btnDk = findViewById(R.id.btnDk);
         db = new Database(this);
+
+        edtMk.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                    if (event.getAction() == KeyEvent.ACTION_DOWN){
+                        btnDk.callOnClick();
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
 
         btnDk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,16 +62,14 @@ public class MainActivity2 extends AppCompatActivity {
                 if(name.equals("")||address.equals("")
                 ||phone.equals("")||username.equals("")
                 ||password.equals("")){
-                    Toast.makeText(MainActivity2.this, "Không được bỏ trống thông tin", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Không được bỏ trống thông tin", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     db.insertAccount(taikhoan);
-                    Intent intent = new Intent(MainActivity2.this,MainActivity.class);
+                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                     startActivity(intent);
-                    Toast.makeText(MainActivity2.this, "Đăng kí thành công", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Đăng kí thành công", Toast.LENGTH_SHORT).show();
                 }
-
-
             }
         });
     }

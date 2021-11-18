@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +18,7 @@ import com.example.qlnhatro.Adapter.CustomerAdapter;
 import com.example.qlnhatro.Model.Customer;
 import com.example.qlnhatro.R;
 import com.example.qlnhatro.Service.ServiceAPI;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.util.ArrayList;
@@ -36,12 +36,12 @@ public class CustomerFragment extends Fragment {
     private RecyclerView rclCusList;
     private CustomerAdapter customerAdapter;
     private Context context;
-    private Button btnAdd;
+    private FloatingActionButton btnAdd;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.layout_customer, container, false);
+        View view = inflater.inflate(R.layout.list_customer, container, false);
         rclCusList = view.findViewById(R.id.rclCusList);
         btnAdd = view.findViewById(R.id.btnAdd);
         alCustomer = new ArrayList<>();
@@ -53,7 +53,6 @@ public class CustomerFragment extends Fragment {
 //        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
 //        rclCusList.setLayoutManager(linearLayoutManager);
 //        rclCusList.setAdapter(customerAdapter);
-
         getCustomer();
         return view;
     }

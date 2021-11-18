@@ -29,7 +29,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_item_account, parent, false);
+                .inflate(R.layout.list_item_customer, parent, false);
         return new ViewHolder(view);
     }
 

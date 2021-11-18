@@ -11,10 +11,9 @@ import androidx.fragment.app.Fragment;
 
 import com.example.qlnhatro.R;
 
-public class InvoiceFragment extends Fragment {
+public class InvoiceDetailFragment extends Fragment {
     @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.list_invoice,container,false);
+    public View OnCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
+        return inflater.inflate(R.layout.list_invoicedetail,container,false);
     }
 }

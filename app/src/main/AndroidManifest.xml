@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QLNhaTro">
         <activity
-            android:name=".MainActivity4"
+            android:name=".RoomManageActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity3"
+            android:name=".MenuDashboardActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity2"
+            android:name=".RegisterActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

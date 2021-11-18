@@ -33,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Phong"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -49,13 +49,16 @@
             android:id="@+id/btnSua"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_baseline_edit"
-            android:backgroundTint="#4CAF50"/>
+            android:background="@drawable/botronedittext"
+            android:backgroundTint="#4CAF50"
+            android:src="@drawable/ic_baseline_edit" />
+
         <ImageButton
             android:id="@+id/btnXoa"
             android:layout_width="50dp"
             android:layout_marginLeft="4dp"
             android:layout_height="50dp"
+            android:background="@drawable/botronedittext"
             android:src="@drawable/ic_baseline_delete"
             android:backgroundTint="#FF5722"/>
 

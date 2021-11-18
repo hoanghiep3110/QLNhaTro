@@ -3,6 +3,11 @@ package com.example.qlnhatro.Model;
 public class Room {
     private int IdPhong;
     private String TenPhong;
+
+    public Room(String tenPhong) {
+        TenPhong = tenPhong;
+    }
+
     private boolean TrangThai;
 
     public int getIdPhong() {
@@ -34,7 +39,6 @@ public class Room {
         TenPhong = tenPhong;
         TrangThai = trangThai;
     }
-
 
     public Room() {
     }

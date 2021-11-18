@@ -49,12 +49,14 @@
             android:id="@+id/btnEdit"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:background="@drawable/botronedittext"
             android:src="@drawable/ic_baseline_edit"
             android:backgroundTint="#4CAF50"/>
         <ImageButton
             android:id="@+id/btnDelete"
             android:layout_width="50dp"
             android:layout_marginLeft="4dp"
+            android:background="@drawable/botronedittext"
             android:layout_height="50dp"
             android:src="@drawable/ic_baseline_delete"
             android:backgroundTint="#FF5722"/>
