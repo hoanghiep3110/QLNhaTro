@@ -61,10 +61,10 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
         String str = Boolean.toString(b);
         if (str == "true") {
             holder.txtStatus.setText("ĐÃ CÓ NGƯỜI");
-            holder.txtStatus.setTextColor();
+            holder.txtStatus.setTextColor(Color.parseColor("#4CAF50"));
         } else {
             holder.txtStatus.setText("PHÒNG ĐANG TRỐNG");
-            holder.txtStatus.setTextColor();
+            holder.txtStatus.setTextColor(Color.parseColor("#E81708"));
         }
 
         holder.btnEdit.setOnClickListener(new View.OnClickListener() {

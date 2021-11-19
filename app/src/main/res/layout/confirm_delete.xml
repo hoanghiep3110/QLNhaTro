@@ -52,5 +52,4 @@
             app:backgroundTint="@color/red"
             android:layout_weight="1"/>
     </LinearLayout>
-
 </LinearLayout>
