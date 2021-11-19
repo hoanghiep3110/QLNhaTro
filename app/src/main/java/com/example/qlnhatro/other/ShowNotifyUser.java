@@ -1,14 +1,12 @@
 package com.example.qlnhatro.other;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.widget.ProgressBar;
-
-import com.example.qlnhatro.R;
-
-
+import android.content.DialogInterface;
 
 public class ShowNotifyUser {
+
     private static ProgressDialog mProgressDialog;
 
     public static void showProgressDialog(Context context, String message) {
@@ -18,7 +16,6 @@ public class ShowNotifyUser {
         mProgressDialog.setCanceledOnTouchOutside(false);
         mProgressDialog.show();
     }
-
     public static void dismissProgressDialog() {
         mProgressDialog.dismiss();
     }

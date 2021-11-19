@@ -17,9 +17,9 @@ public class RoomDetailActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_room);
-
-        edtTenPhong = findViewById(R.id.edtTenPhong);
-        edtTrangThai = findViewById(R.id.edtTrangThai);
+//
+//        edtTenPhong = findViewById(R.id.edtTenPhong);
+//        edtTrangThai = findViewById(R.id.edtTrangThai);
 
     }
 }

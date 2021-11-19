@@ -56,17 +56,30 @@
             android:layout_height="60sp"
             android:background="@drawable/background" />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnDk"
-            android:layout_width="210dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:textStyle="bold"
+            android:id="@+id/btnSuaPhong"
+            android:text="Có"
+            android:layout_marginRight="10dp"
+            android:textSize="14sp"
             android:background="@drawable/botronedittext"
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:text="Sửa thông tin"
-            android:textSize="20dp" />
+            android:layout_weight="1"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnThoat"
+            android:text="Không"
+            android:layout_marginLeft="10dp"
+            android:textSize="14sp"
+            android:background="@drawable/botronedittext"
+            android:backgroundTint="@color/red"
+            android:layout_weight="1"/>
+    </LinearLayout>
 </LinearLayout>

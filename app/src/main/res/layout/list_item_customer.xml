@@ -46,7 +46,7 @@
         </LinearLayout>
 
         <ImageButton
-            android:id="@+id/btnSua"
+            android:id="@+id/btnSuaKhach"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/botronedittext"
@@ -54,7 +54,7 @@
             android:src="@drawable/ic_baseline_edit" />
 
         <ImageButton
-            android:id="@+id/btnXoa"
+            android:id="@+id/btnXoaKhach"
             android:layout_width="50dp"
             android:layout_marginLeft="4dp"
             android:layout_height="50dp"
@@ -63,8 +63,4 @@
             android:backgroundTint="#FF5722"/>
 
     </LinearLayout>
-
-
-
-
 </androidx.cardview.widget.CardView>

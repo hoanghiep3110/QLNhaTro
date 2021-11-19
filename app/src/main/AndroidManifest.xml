@@ -15,9 +15,6 @@
             android:name=".Detail.RoomDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".RoomManageActivity"
-            android:exported="true" />
-        <activity
             android:name=".MenuDashboardActivity"
             android:exported="true" />
         <activity

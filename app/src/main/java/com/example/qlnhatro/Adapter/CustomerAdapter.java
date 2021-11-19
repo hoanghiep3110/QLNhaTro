@@ -55,8 +55,8 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
             super(itemView);
             txtTen = itemView.findViewById(R.id.txtTen);
             txtGioitinh = itemView.findViewById(R.id.txtGioitinh);
-            btnSua = itemView.findViewById(R.id.btnSua);
-            btnXoa = itemView.findViewById(R.id.btnXoa);
+            btnSua = itemView.findViewById(R.id.btnSuaKhach);
+            btnXoa = itemView.findViewById(R.id.btnXoaKhach);
 
         };
     }

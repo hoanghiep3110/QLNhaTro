@@ -9,23 +9,27 @@ import java.util.ArrayList;
 
 import io.reactivex.Observable;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 
 public interface ServiceAPI {
-    String BASE_Service = " https://b2e6-2402-800-638a-3977-b1ef-565f-b230-4ab5.ngrok.io/";
+    String BASE_Service = " https://3954-2402-800-638a-3977-39c2-e7af-f94b-6cbe.ngrok.io/";
 
     //api phong
     @GET("api/PHONG")
     Observable<ArrayList<Room>> GetAllRoom();
 
+    @GET("api/PHONG")
+    Observable<Room> GetDetailRoom(@Query("id") int id);
+
     @POST("api/PHONG")
     Observable<Message> AddRoom(@Body Room room);
 
-    @GET("api/product-detail")
-    Observable<Room> GetDetailRoom(@Query("id") int id);
+    @DELETE("api/PHONG")
+    Observable<Message> DeleteRoom(@Query("id") int id);
 
     //api khachhang
     @GET("api/KHACHHANG")
