@@ -10,6 +10,12 @@ public class Service {
     }
 
     private int DonGia;
+
+    public Service(String tenDichVu, int donGia) {
+        DonGia = donGia;
+        TenDichVu = tenDichVu;
+    }
+
     private String TenDichVu;
 
     public int getIdDichVu() {

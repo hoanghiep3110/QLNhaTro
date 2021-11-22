@@ -12,7 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QLNhaTro">
         <activity
-            android:name=".Detail.RoomDetailActivity"
+            android:name=".Detail.CustomerDetail"
+            android:exported="false" />
+        <activity
+            android:name=".Detail.ServiceDetail"
+            android:exported="false" />
+        <activity
+            android:name=".Detail.RoomDetail"
             android:exported="false" />
         <activity
             android:name=".MenuDashboardActivity"

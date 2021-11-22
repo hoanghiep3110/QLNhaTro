@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.qlnhatro.Adapter.RoomAdapter;
+import com.example.qlnhatro.Detail.RoomDetail;
+import com.example.qlnhatro.MenuDashboardActivity;
 import com.example.qlnhatro.Model.Message;
 import com.example.qlnhatro.Model.Room;
 import com.example.qlnhatro.R;
@@ -46,7 +49,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RoomFragment extends Fragment {
 
     private ArrayList<Room> alRoom;
-
     private RecyclerView rclRoomList;
     private RoomAdapter roomAdapter;
     private FloatingActionButton btnAdd;
@@ -58,8 +60,10 @@ public class RoomFragment extends Fragment {
         View view = inflater.inflate(R.layout.list_room, container, false);
         rclRoomList = view.findViewById(R.id.rclRoomList);
         btnAdd = view.findViewById(R.id.btnAdd);
-        showProgressDialog(getActivity(),"Đang tải dữ liệu nè !");
+        showProgressDialog(getActivity(),"Đang tải dữ liệu nè. Vui lòng chờ !");
         getRoom();
+
+
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -121,6 +125,19 @@ public class RoomFragment extends Fragment {
             }
         });
 
+        edtPhong.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                    if (event.getAction() == KeyEvent.ACTION_DOWN){
+                        btnThem.callOnClick();
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -141,25 +158,20 @@ public class RoomFragment extends Fragment {
                         .subscribe(this::handleResponse, this::handleError)
                 );
             }
-
-
             private void handleResponse(Message message) {
                 dismissProgressDialog();
                 try {
                     Toast.makeText(getActivity(), message.getNotification(), Toast.LENGTH_SHORT).show();
                     if (message.getStatus() == 1) {
-                        Toast.makeText(getActivity(),"Thêm thành công !", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getActivity(), MenuDashboardActivity.class));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-
             private void handleError(Throwable throwable) {
                 dismissProgressDialog();
-                Toast.makeText(getActivity(), "Lỗi", Toast.LENGTH_SHORT).show();
             }
-
         });
         dialog.show();
     }

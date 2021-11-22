@@ -5,6 +5,15 @@ public class Customer {
     private String HoTen,Sdt,QueQuan,HKTT;
     private String GioiTinh,SoCMND;
 
+    public Customer(String hoTen, String sdt, String gioiTinh, String queQuan, String HKTT, String soCMND) {
+        HoTen = hoTen;
+        Sdt = sdt;
+        QueQuan = queQuan;
+        this.HKTT = HKTT;
+        GioiTinh = gioiTinh;
+        SoCMND = soCMND;
+    }
+
     public Customer(int idKhachHang, String hoTen) {
         IdKhachHang = idKhachHang;
         HoTen = hoTen;
@@ -65,7 +74,6 @@ public class Customer {
     public void setSoCMND(String soCMND) {
         SoCMND = soCMND;
     }
-
 
     public Customer() {
     }

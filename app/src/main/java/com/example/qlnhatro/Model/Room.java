@@ -8,7 +8,26 @@ public class Room {
         TenPhong = tenPhong;
     }
 
-    private boolean TrangThai;
+    public Room(String tenPhong, int trangThai) {
+        TenPhong = tenPhong;
+        TrangThai = trangThai;
+    }
+
+    public Room(int idPhong, String tenPhong, int trangThai) {
+        IdPhong = idPhong;
+        TenPhong = tenPhong;
+        TrangThai = trangThai;
+    }
+
+    public int getTrangThai() {
+        return TrangThai;
+    }
+
+    public void setTrangThai(int trangThai) {
+        TrangThai = trangThai;
+    }
+
+    private int TrangThai;
 
     public int getIdPhong() {
         return IdPhong;
@@ -24,20 +43,6 @@ public class Room {
 
     public void setTenPhong(String tenPhong) {
         TenPhong = tenPhong;
-    }
-
-    public boolean isTrangThai() {
-        return TrangThai;
-    }
-
-    public void setTrangThai(boolean trangThai) {
-        TrangThai = trangThai;
-    }
-
-    public Room(int idPhong, String tenPhong, boolean trangThai) {
-        IdPhong = idPhong;
-        TenPhong = tenPhong;
-        TrangThai = trangThai;
     }
 
     public Room() {

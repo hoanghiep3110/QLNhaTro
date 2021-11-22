@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_yellow_corner"
         android:backgroundTint="#7BD384"
-        android:text="Thêm Phòng"
+        android:text="Thêm Dịch Vụ"
         android:textStyle="bold"
         android:gravity="center"
         android:padding="12dp"
@@ -27,14 +27,14 @@
         <TextView
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:text="Tên Phòng"
+            android:text="Tên Dịch Vụ"
             android:textSize="20dp"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_marginTop="16dp"
             android:layout_weight="1"/>
         <EditText
-            android:id="@+id/edtPhong"
+            android:id="@+id/edtTenDichVu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
@@ -42,7 +42,30 @@
             android:layout_marginTop="16dp"
             android:textColor="@color/black"
             android:layout_weight="1"/>
-
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="16dp">
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Đơn Giá"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"/>
+        <EditText
+            android:id="@+id/edtDonGia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:background="@drawable/background"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+            android:layout_weight="1"/>
     </LinearLayout>
 
     <LinearLayout
@@ -56,7 +79,7 @@
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/btnThem"
+            android:id="@+id/btnThemDichVu"
             android:text="Thêm"
             android:layout_marginRight="10dp"
             android:textSize="14sp"
@@ -65,7 +88,7 @@
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/btnThoat"
+            android:id="@+id/btnThoatDV"
             android:text="Thoát"
             android:layout_marginLeft="10dp"
             android:textSize="14sp"

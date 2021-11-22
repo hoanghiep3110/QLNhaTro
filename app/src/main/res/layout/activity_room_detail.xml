@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/botronedittext"
+    android:backgroundTint="@color/gray"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_yellow_corner"
+        android:backgroundTint="#7BD384"
+        android:text="Chi Tiết Phòng"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:textSize="30dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:textStyle="italic"
+        android:fontFamily="sans-serif-black"
+        android:text="Nếu muốn sửa thông tin vui lòng nhập lại thông tin và thực hiện nhấn nút !"
+        android:textSize="20dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="sans-serif-black"
+            android:text="Tên Phòng :"
+            android:textSize="20dp" />
+        <EditText
+            android:id="@+id/edtTenPhong"
+            android:layout_marginLeft="20dp"
+            android:layout_width="250dp"
+            android:layout_height="60sp"
+            android:background="@drawable/background" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginLeft="15dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Trạng Thái :"
+            android:textSize="20dp" />
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/rdgColor"
+            android:gravity="left"
+            android:layout_marginLeft="40dp"
+            android:layout_weight="1">
+            <RadioButton
+                android:defaultFocusHighlightEnabled="false"
+                android:id="@+id/rbtnTrong"
+                android:text="PHÒNG ĐANG TRỐNG"
+                android:textSize="18dp"
+                android:textColor="@color/red"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <RadioButton
+                android:id="@+id/rbtnCoNguoi"
+                android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textColor="#4CAF50"
+                android:text="ĐÃ CÓ NGƯỜI"
+                android:layout_height="wrap_content"/>
+            <RadioButton
+                android:id="@+id/rbtnDangSua"
+                android:layout_width="wrap_content"
+                android:textColor="#3F51B5"
+                android:textStyle="bold"
+                android:text="ĐANG SỬA CHỮA"
+                android:textSize="18dp"
+                android:layout_height="wrap_content"/>
+    </RadioGroup>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSuaPhong"
+            android:text="Sửa"
+            android:layout_marginRight="10dp"
+            android:textSize="14sp"
+            android:background="@drawable/background"
+            android:layout_weight="1"/>
+        <Button
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnThoat"
+            android:text="Thoát"
+            android:layout_marginLeft="10dp"
+            android:textSize="14sp"
+            android:background="@drawable/botronbutton"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</LinearLayout>
