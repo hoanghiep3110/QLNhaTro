@@ -4,7 +4,6 @@ import static com.example.qlnhatro.Service.ServiceAPI.BASE_Service;
 import static com.example.qlnhatro.other.ShowNotifyUser.dismissProgressDialog;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -22,9 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.qlnhatro.Detail.CustomerDetail;
-import com.example.qlnhatro.Detail.RoomDetail;
-import com.example.qlnhatro.Fragment.CustomerFragment;
+import com.example.qlnhatro.Detail.CustomerDetailActivity;
 import com.example.qlnhatro.Model.Customer;
 import com.example.qlnhatro.Model.Message;
 import com.example.qlnhatro.R;
@@ -67,7 +64,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
             public void onClick(View v) {
                 int position = (holder.getAdapterPosition());
                 int id = alCus.get(position).getIdKhachHang();
-                Intent intent = new Intent(context.getContext(), CustomerDetail.class);
+                Intent intent = new Intent(context.getContext(), CustomerDetailActivity.class);
                 intent.putExtra("id",id);
                 v.getContext().startActivity(intent);
             }

@@ -1,9 +1,7 @@
 package com.example.qlnhatro.other;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 
 public class ShowNotifyUser {
 

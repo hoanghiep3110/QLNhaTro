@@ -5,8 +5,6 @@ import static com.example.qlnhatro.other.ShowNotifyUser.dismissProgressDialog;
 import static com.example.qlnhatro.other.ShowNotifyUser.showProgressDialog;
 
 import android.app.Dialog;
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -26,11 +24,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.qlnhatro.Adapter.RoomAdapter;
 import com.example.qlnhatro.Adapter.ServiceAdapter;
-import com.example.qlnhatro.MenuDashboardActivity;
 import com.example.qlnhatro.Model.Message;
-import com.example.qlnhatro.Model.Room;
 import com.example.qlnhatro.Model.Service;
 import com.example.qlnhatro.R;
 import com.example.qlnhatro.Service.ServiceAPI;
@@ -52,14 +47,22 @@ public class ServiceFragment extends Fragment {
     private ServiceAdapter serviceAdapter;
     private FloatingActionButton btnAdd;
 
+    @Override
+    public void onResume() {
+        getService();
+        super.onResume();
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.list_service,container,false);
         rclServiceList = view.findViewById(R.id.rclServiceList);
         btnAdd = view.findViewById(R.id.btnAddService);
-        showProgressDialog(getActivity(),"Đang tải dữ liệu nè. Vui lòng chờ !");
+
+        showProgressDialog(getActivity(),"Đang tải dữ liệu. Vui lòng chờ !");
         getService();
+
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -154,8 +157,6 @@ public class ServiceFragment extends Fragment {
                         .subscribe(this::handleResponse, this::handleError)
                 );
             }
-
-
             private void handleResponse(Message message) {
                 dismissProgressDialog();
                 try {

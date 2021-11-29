@@ -1,84 +1,81 @@
 package com.example.qlnhatro.Model;
 
-public class Accounts {
+import java.io.Serializable;
 
+public class Accounts implements Serializable {
 
-    private int accountID ;
-    private String name;
-    private String address;
-    private String phone;
-    private String userName;
-    private String passWord;
+    private int IdTaiKhoan ;
+    private String HoTen;
+    private String Sdt;
+    private String DiaChi;
+    private String Username;
+    private String Password;
 
-
-    public Accounts(String name, String address, String phone, String userName, String passWord) {
-        this.name = name;
-        this.address = address;
-        this.phone = phone;
-        this.userName = userName;
-        this.passWord = passWord;
+    public Accounts(String hoTen, String sdt, String diaChi, String username, String password) {
+        HoTen = hoTen;
+        Sdt = sdt;
+        DiaChi = diaChi;
+        Username = username;
+        Password = password;
     }
 
-
-
-    public int getAccountID() {
-        return accountID;
+    public int getIdTaiKhoan() {
+        return IdTaiKhoan;
     }
 
-    public void setAccountID(int accountID) {
-        this.accountID = accountID;
-    }
-    public String getName() {
-        return name;
+    public void setIdTaiKhoan(int idTaiKhoan) {
+        IdTaiKhoan = idTaiKhoan;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getHoTen() {
+        return HoTen;
     }
 
-    public String getAddress() {
-        return address;
+    public void setHoTen(String hoTen) {
+        HoTen = hoTen;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public String getSdt() {
+        return Sdt;
     }
 
-    public String getPhone() {
-        return phone;
+    public void setSdt(String sdt) {
+        Sdt = sdt;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public String getDiaChi() {
+        return DiaChi;
     }
 
-    public String getUserName() {
-        return userName;
+    public void setDiaChi(String diaChi) {
+        DiaChi = diaChi;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public String getUsername() {
+        return Username;
     }
 
-    public String getPassWord() {
-        return passWord;
+    public void setUsername(String username) {
+        Username = username;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public String getPassword() {
+        return Password;
     }
 
+    public void setPassword(String password) {
+        Password = password;
+    }
 
-    
-
-
-
-    public Accounts(int accountID,String name, String address, String phone, String userName, String passWord ) {
-        this.accountID = accountID;
-        this.name = name;
-        this.address = address;
-        this.phone = phone;
-        this.userName = userName;
-        this.passWord = passWord;
+    @Override
+    public String toString() {
+        return "Accounts{" +
+                "IdTaiKhoan=" + IdTaiKhoan +
+                ", HoTen='" + HoTen + '\'' +
+                ", Sdt='" + Sdt + '\'' +
+                ", DiaChi='" + DiaChi + '\'' +
+                ", Username='" + Username + '\'' +
+                ", Password='" + Password + '\'' +
+                '}';
     }
 }

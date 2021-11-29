@@ -2,7 +2,6 @@ package com.example.qlnhatro.Detail;
 
 import static com.example.qlnhatro.Service.ServiceAPI.BASE_Service;
 import static com.example.qlnhatro.other.ShowNotifyUser.dismissProgressDialog;
-import static com.example.qlnhatro.other.ShowNotifyUser.showProgressDialog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,7 +27,7 @@ import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RoomDetail extends AppCompatActivity {
+public class RoomDetailActivity extends AppCompatActivity {
 
     private EditText edtTenPhong;
     private Button btnSuaPhong,btnThoat;
@@ -89,9 +88,9 @@ public class RoomDetail extends AppCompatActivity {
             private void handleResponse(Message message) {
                 dismissProgressDialog();
                 try {
-                    Toast.makeText(RoomDetail.this, message.getNotification(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RoomDetailActivity.this, message.getNotification(), Toast.LENGTH_SHORT).show();
                     if (message.getStatus() == 1) {
-                        startActivity(new Intent(RoomDetail.this, MenuDashboardActivity.class));
+                        startActivity(new Intent(RoomDetailActivity.this, MenuDashboardActivity.class));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -105,7 +104,7 @@ public class RoomDetail extends AppCompatActivity {
         btnThoat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(RoomDetail.this, MenuDashboardActivity.class));
+                finish();
             }
         });
     }

@@ -5,8 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_white_corner"
     android:backgroundTint="@color/gray"
-    android:layout_margin="16dp"
+
     android:orientation="vertical">
+
+<!--   <ScrollView-->
+<!--       android:layout_width="wrap_content"-->
+<!--       android:layout_height="match_parent">-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,15 +19,13 @@
         android:text="Thêm Khách Hàng"
         android:textStyle="bold"
         android:gravity="center"
-        android:padding="10dp"
         android:textColor="@color/black"
         android:textSize="30dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:padding="16dp">
-
+        android:padding="5dp">
         <TextView
             android:layout_width="250dp"
             android:layout_height="wrap_content"
@@ -47,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="5dp">
 
         <TextView
             android:layout_width="250dp"
@@ -72,7 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="5dp">
 
         <TextView
             android:layout_width="250dp"
@@ -98,7 +100,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="5dp">
 
         <TextView
             android:layout_width="250dp"
@@ -123,7 +125,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="5dp">
 
         <TextView
             android:layout_width="250dp"
@@ -148,36 +150,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="5dp">
         <TextView
-            android:layout_width="250dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CMND/CCCD"
             android:textSize="20dp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"/>
-        <EditText
-            android:layout_width="match_parent"
+        <Button
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:id="@+id/edtCMND"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/background"
-            android:textColor="@color/black"
+            android:id="@+id/nhaphinh"
+            android:gravity="center"
+            android:backgroundTint="#8B8B8B"
+            android:text="Nhập hình ảnh"
+            android:layout_gravity="center"
             android:layout_weight="1"/>
     </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/showhinh"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:padding="5dp"
         android:orientation="horizontal">
         <Button
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:id="@+id/btnThemKH"
             android:text="Thêm"
             android:layout_marginRight="10dp"
@@ -186,7 +190,7 @@
             android:layout_weight="1"/>
         <Button
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:id="@+id/btnThoatKH"
             android:text="Thoát"
             android:layout_marginLeft="10dp"
@@ -195,6 +199,7 @@
             app:backgroundTint="@color/red"
             android:layout_weight="1"/>
     </LinearLayout>
-
-
+<!--   </ScrollView>-->
 </LinearLayout>
+
+

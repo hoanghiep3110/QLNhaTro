@@ -17,7 +17,7 @@
         <ImageView
             android:layout_width="60dp"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_contacts" />
+            android:src="@drawable/ic_contact" />
 
 
         <LinearLayout
@@ -29,15 +29,14 @@
             tools:ignore="RtlSymmetry">
 
             <TextView
-                android:id="@+id/txtTen"
+                android:id="@+id/txtTenNguoiThue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Phong"
                 android:textSize="14sp"
                 android:textStyle="bold" />
-
             <TextView
-                android:id="@+id/txtGioitinh"
+                android:id="@+id/txtPhongThue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Trạng thái"
@@ -46,22 +45,12 @@
         </LinearLayout>
 
         <ImageButton
-            android:id="@+id/btnSua"
+            android:id="@+id/btnXemChiTiet"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/botronedittext"
-            android:backgroundTint="#4CAF50"
-            android:src="@drawable/ic_baseline_edit" />
-
-        <ImageButton
-            android:id="@+id/btnXoa"
-            android:layout_width="50dp"
-            android:layout_marginLeft="4dp"
-            android:layout_height="50dp"
-            android:background="@drawable/botronedittext"
-            android:src="@drawable/ic_baseline_delete"
-            android:backgroundTint="#FF5722"/>
-
+            android:backgroundTint="#2196F3"
+            android:src="@drawable/ic_detail" />
     </LinearLayout>
 
 

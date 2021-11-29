@@ -1,6 +1,5 @@
 package com.example.qlnhatro.Adapter;
 
-import static androidx.core.content.ContextCompat.startActivity;
 import static com.example.qlnhatro.Service.ServiceAPI.BASE_Service;
 import static com.example.qlnhatro.other.ShowNotifyUser.dismissProgressDialog;
 
@@ -25,8 +24,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.qlnhatro.Detail.RoomDetail;
-import com.example.qlnhatro.MenuDashboardActivity;
+import com.example.qlnhatro.Detail.RoomDetailActivity;
 import com.example.qlnhatro.Model.Message;
 import com.example.qlnhatro.Model.Room;
 import com.example.qlnhatro.R;
@@ -77,7 +75,7 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
             public void onClick(View v) {
                 int position = (holder.getAdapterPosition());
                 int id = alRoom.get(position).getIdPhong();
-                Intent intent = new Intent(context.getContext(), RoomDetail.class);
+                Intent intent = new Intent(context.getContext(), RoomDetailActivity.class);
                 intent.putExtra("id",id);
                 v.getContext().startActivity(intent);
             }

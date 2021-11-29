@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/botronedittext"
@@ -95,7 +96,7 @@
                 android:text="ĐANG SỬA CHỮA"
                 android:textSize="18dp"
                 android:layout_height="wrap_content"/>
-    </RadioGroup>
+        `</RadioGroup>
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -103,7 +104,6 @@
         android:layout_marginTop="30dp"
         android:layout_gravity="center"
         android:orientation="horizontal">
-
         <Button
             android:layout_width="170dp"
             android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
             android:text="Sửa"
             android:layout_marginRight="10dp"
             android:textSize="14sp"
-            android:background="@drawable/background"
+            android:background="@drawable/botronedittext"
             android:layout_weight="1"/>
         <Button
             android:layout_width="170dp"
@@ -120,7 +120,8 @@
             android:text="Thoát"
             android:layout_marginLeft="10dp"
             android:textSize="14sp"
-            android:background="@drawable/botronbutton"
+            android:background="@drawable/botronedittext"
+            app:backgroundTint="@color/red"
             android:layout_weight="1"/>
     </LinearLayout>
 </LinearLayout>

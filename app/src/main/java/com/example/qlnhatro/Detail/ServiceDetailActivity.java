@@ -2,7 +2,6 @@ package com.example.qlnhatro.Detail;
 
 import static com.example.qlnhatro.Service.ServiceAPI.BASE_Service;
 import static com.example.qlnhatro.other.ShowNotifyUser.dismissProgressDialog;
-import static com.example.qlnhatro.other.ShowNotifyUser.showProgressDialog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,9 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.qlnhatro.MenuDashboardActivity;
 import com.example.qlnhatro.Model.Message;
-import com.example.qlnhatro.Model.Room;
 import com.example.qlnhatro.Model.Service;
 import com.example.qlnhatro.R;
 import com.example.qlnhatro.Service.ServiceAPI;
@@ -27,7 +24,7 @@ import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ServiceDetail extends AppCompatActivity {
+public class ServiceDetailActivity extends AppCompatActivity {
 
     private EditText edtTenDichVu, edtDonGia;
     private Button btnSuaDV,btnThoatDV;
@@ -56,7 +53,6 @@ public class ServiceDetail extends AppCompatActivity {
                 int dongia = Integer.parseInt(edtDonGia.getText().toString());
                 Service service = new Service(ten, dongia);
                 editService(id, service);
-
             }
             private void editService(int id, Service service) {
                 ServiceAPI requestInterface = new Retrofit.Builder()
@@ -75,9 +71,10 @@ public class ServiceDetail extends AppCompatActivity {
             private void handleResponse(Message message) {
                 dismissProgressDialog();
                 try {
-                    Toast.makeText(ServiceDetail.this, message.getNotification(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ServiceDetailActivity.this, message.getNotification(), Toast.LENGTH_SHORT).show();
                     if (message.getStatus() == 1) {
-                        startActivity(new Intent(ServiceDetail.this, MenuDashboardActivity.class));
+                        finish();
+//                        startActivity(new Intent(ServiceDetail.this, MenuDashboardActivity.class));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -87,7 +84,7 @@ public class ServiceDetail extends AppCompatActivity {
         btnThoatDV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ServiceDetail.this, MenuDashboardActivity.class));
+                finish();
             }
         });
     }

@@ -2,37 +2,38 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
 
-        <item
-            android:id="@+id/motel"
-            android:icon="@drawable/ic_home"
-            android:title="@string/Motel" />
-        <item
-            android:id="@+id/customer"
-            android:icon="@drawable/ic_baseline_supervised_user_circle_24"
-            android:title="@string/customer" />
-        <item
-            android:id="@+id/service"
-            android:icon="@drawable/ic_service"
-            android:title="@string/service" />
-        <item
-            android:id="@+id/invoice"
-            android:icon="@drawable/ic_money"
-            android:title="@string/invoice" />
-        <item
-            android:id="@+id/invoicedetail"
-            android:icon="@drawable/ic_detail"
-            android:title="@string/invoicedetail" />
-        <item
-            android:id="@+id/contact"
-            android:icon="@drawable/ic_contacts"
-            android:title="@string/contact" />
+        <item android:title="@string/manage">
+            <menu>
+                <item
+                    android:id="@+id/motel"
+                    android:icon="@drawable/ic_home"
+                    android:title="@string/Motel" />
+                <item
+                    android:id="@+id/customer"
+                    android:icon="@drawable/ic_baseline_supervised_user_circle_24"
+                    android:title="@string/customer" />
+                <item
+                    android:id="@+id/service"
+                    android:icon="@drawable/ic_service"
+                    android:title="@string/service" />
+                <item
+                    android:id="@+id/contact"
+                    android:icon="@drawable/ic_contact"
+                    android:title="@string/contact" />
+
+                <item
+                    android:id="@+id/invoicedetail"
+                    android:icon="@drawable/ic_money"
+                    android:title="@string/invoicedetail" />
+            </menu>
+        </item>
     </group>
     <item android:title="@string/information">
         <menu>
             <item
                 android:id="@+id/logout"
-                android:title="@string/logout"
-                android:icon="@drawable/ic_logout"/>
+                android:icon="@drawable/ic_logout"
+                android:title="@string/logout" />
         </menu>
     </item>
 </menu>

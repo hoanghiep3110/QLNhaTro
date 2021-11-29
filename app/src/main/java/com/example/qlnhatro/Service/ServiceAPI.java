@@ -1,6 +1,8 @@
 package com.example.qlnhatro.Service;
 
+import com.example.qlnhatro.Model.Accounts;
 import com.example.qlnhatro.Model.Customer;
+import com.example.qlnhatro.Model.Contact;
 import com.example.qlnhatro.Model.Message;
 import com.example.qlnhatro.Model.Room;
 import com.example.qlnhatro.Model.Service;
@@ -17,8 +19,16 @@ import retrofit2.http.Query;
 
 
 public interface ServiceAPI {
-    String BASE_Service = "https://d60e-2402-800-638a-c712-6991-3efa-76d4-8f29.ngrok.io/";
+    String BASE_Service = "https://54e1-2402-800-6312-d283-8168-7aba-d551-e9a1.ngrok.io/";
 
+    //-----------------------------------------------------------------------//
+    @GET("api/TAIKHOAN")
+    Observable<ArrayList<Accounts>> GetAllAccouunts();
+
+    @POST("api/TAIKHOAN")
+    Observable<Message> AddAccounts(@Body Accounts accounts);
+
+    //-----------------------------------------------------------------------//
     //api phong
     @GET("api/PHONG")
     Observable<ArrayList<Room>> GetAllRoom();
@@ -70,5 +80,13 @@ public interface ServiceAPI {
     @PUT("api/DICHVU")
     Observable<Message> PutService(@Query("id") int id, @Body Service service);
 
+    //------------------------------------------------------------------------//
+
+    //api thue phong
+    @GET("api/THUEPHONG")
+    Observable<ArrayList<Contact>> GetAllContact();
+
+    @GET("api/THUEPHONG")
+    Observable<Contact> GetDetailContact(@Query("id") int id);
 
 }

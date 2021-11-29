@@ -37,6 +37,7 @@
             android:layout_width="370dp"
             android:layout_gravity="center"
             android:layout_marginTop="25dp"
+            app:hintTextColor="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_height="wrap_content">
 
@@ -54,6 +55,7 @@
             app:passwordToggleEnabled="true"
             android:layout_width="370dp"
             android:layout_gravity="center"
+            app:hintTextColor="@color/black"
             android:layout_marginTop="12dp">
 
             <com.google.android.material.textfield.TextInputEditText

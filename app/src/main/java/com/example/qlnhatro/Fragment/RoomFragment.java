@@ -4,9 +4,8 @@ import static com.example.qlnhatro.Service.ServiceAPI.BASE_Service;
 import static com.example.qlnhatro.other.ShowNotifyUser.dismissProgressDialog;
 import static com.example.qlnhatro.other.ShowNotifyUser.showProgressDialog;
 
-import android.app.Activity;
+import android.Manifest;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -28,17 +27,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.qlnhatro.Adapter.RoomAdapter;
-import com.example.qlnhatro.Detail.RoomDetail;
 import com.example.qlnhatro.MenuDashboardActivity;
 import com.example.qlnhatro.Model.Message;
 import com.example.qlnhatro.Model.Room;
 import com.example.qlnhatro.R;
 import com.example.qlnhatro.Service.ServiceAPI;
-import com.example.qlnhatro.other.ShowNotifyUser;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.util.ArrayList;
+
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -53,6 +52,11 @@ public class RoomFragment extends Fragment {
     private RoomAdapter roomAdapter;
     private FloatingActionButton btnAdd;
 
+    @Override
+    public void onResume() {
+        getRoom();
+        super.onResume();
+    }
 
     @Nullable
     @Override
@@ -60,9 +64,9 @@ public class RoomFragment extends Fragment {
         View view = inflater.inflate(R.layout.list_room, container, false);
         rclRoomList = view.findViewById(R.id.rclRoomList);
         btnAdd = view.findViewById(R.id.btnAdd);
-        showProgressDialog(getActivity(),"Đang tải dữ liệu nè. Vui lòng chờ !");
-        getRoom();
 
+        showProgressDialog(getActivity(),"Đang tải dữ liệu. Vui lòng chờ !");
+        getRoom();
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,7 +119,7 @@ public class RoomFragment extends Fragment {
         window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         EditText edtPhong = dialog.findViewById(R.id.edtPhong);
-        Button btnThem = dialog.findViewById(R.id.btnThem);
+        Button btnThemPhong = dialog.findViewById(R.id.btnThem);
         Button btnThoat = dialog.findViewById(R.id.btnThoat);
 
         btnThoat.setOnClickListener(new View.OnClickListener() {
@@ -130,7 +134,7 @@ public class RoomFragment extends Fragment {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
                     if (event.getAction() == KeyEvent.ACTION_DOWN){
-                        btnThem.callOnClick();
+                        btnThemPhong.callOnClick();
                     }
                     return true;
                 }
@@ -138,7 +142,7 @@ public class RoomFragment extends Fragment {
             }
         });
 
-        btnThem.setOnClickListener(new View.OnClickListener() {
+        btnThemPhong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Room room = new Room(edtPhong.getText().toString());

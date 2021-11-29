@@ -5,13 +5,12 @@ public class Customer {
     private String HoTen,Sdt,QueQuan,HKTT;
     private String GioiTinh,SoCMND;
 
-    public Customer(String hoTen, String sdt, String gioiTinh, String queQuan, String HKTT, String soCMND) {
+    public Customer(String hoTen, String sdt, String gioiTinh, String queQuan, String HKTT) {
         HoTen = hoTen;
         Sdt = sdt;
         QueQuan = queQuan;
         this.HKTT = HKTT;
         GioiTinh = gioiTinh;
-        SoCMND = soCMND;
     }
 
     public Customer(int idKhachHang, String hoTen) {

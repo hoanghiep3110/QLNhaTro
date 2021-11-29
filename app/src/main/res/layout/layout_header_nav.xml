@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="180dp"
-    android:background="#393836"
+    android:layout_height="190dp"
+    android:background="#7BD384"
     android:padding="20dp"
-    android:gravity="bottom"
+    android:gravity="center|bottom"
     android:orientation="vertical">
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/nhatro"/>
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo"/>
     <TextView
         android:layout_width="wrap_content"
+        android:id="@+id/txtHoten"
         android:layout_height="wrap_content"
         android:text="xin chao"
         android:textStyle="bold"
@@ -20,6 +21,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/txtSdt"
         android:text="xin chao"
         android:textStyle="bold"
         android:textSize="20dp"
