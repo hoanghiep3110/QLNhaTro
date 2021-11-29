@@ -19,7 +19,7 @@ import retrofit2.http.Query;
 
 
 public interface ServiceAPI {
-    String BASE_Service = "https://54e1-2402-800-6312-d283-8168-7aba-d551-e9a1.ngrok.io/";
+    String BASE_Service = "https://6880-2402-800-6312-d283-8168-7aba-d551-e9a1.ngrok.io/";
 
     //-----------------------------------------------------------------------//
     @GET("api/TAIKHOAN")

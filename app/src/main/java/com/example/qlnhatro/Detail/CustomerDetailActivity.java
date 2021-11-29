@@ -31,8 +31,6 @@ public class CustomerDetailActivity extends AppCompatActivity {
     private Button btnSuaCTKH,btnThoatCTKH;
     private Intent intent;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -122,7 +120,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
         edt4.setText(customer.getQueQuan());
         edt5.setText(customer.getHKTT());
         Glide.with(CustomerDetailActivity.this)
-                .load("https://54e1-2402-800-6312-d283-8168-7aba-d551-e9a1.ngrok.io" + customer.getSoCMND())
+                .load("https://6880-2402-800-6312-d283-8168-7aba-d551-e9a1.ngrok.io" + customer.getSoCMND())
                 .into(imgCMND);
     }
     private void handleError(Throwable throwable) {

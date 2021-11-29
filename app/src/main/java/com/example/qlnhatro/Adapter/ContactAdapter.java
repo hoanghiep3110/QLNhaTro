@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.qlnhatro.Detail.ContactDetailActivity;
 import com.example.qlnhatro.Model.Contact;
 import com.example.qlnhatro.R;
 
@@ -35,17 +36,17 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.txtTenNguoiThue.setText(alCon.get(position).getTienDatCoc());
-        holder.txtPhongThue.setText(alCon.get(position).getIdThue());
+        holder.txtTenNguoiThue.setText(alCon.get(position).getHoTen());
+        holder.txtPhongThue.setText(alCon.get(position).getTenPhong());
 
         holder.btnXemChiTiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                int position = (holder.getAdapterPosition());
-//                int id = alCon.(position).getIdThue();
-//                Intent intent = new Intent(context.getContext(), ContactDetailActivity.class);
-//                intent.putExtra("id",id);
-//                v.getContext().startActivity(intent);
+                int position = (holder.getAdapterPosition());
+                int id = alCon.get(position).getIdThue();
+                Intent intent = new Intent(context.getContext(), ContactDetailActivity.class);
+                intent.putExtra("id",id);
+                v.getContext().startActivity(intent);
             }
         });
     }

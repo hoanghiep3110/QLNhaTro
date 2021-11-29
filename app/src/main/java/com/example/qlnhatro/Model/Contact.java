@@ -1,11 +1,9 @@
 package com.example.qlnhatro.Model;
 
-import java.util.Date;
-
 public class Contact {
     private int IdThue,IdKhachHang,IdPhong,TienDatCoc;
-    private Date NgayBatDau,NgayKetThuc;
-    private String FielHopDong;
+    private String NgayBatDau,NgayKetThuc;
+    private String HoTen,TenPhong ,FileHopDong, LinkDownLoad;
 
     public int getIdThue() {
         return IdThue;
@@ -39,27 +37,51 @@ public class Contact {
         TienDatCoc = tienDatCoc;
     }
 
-    public Date getNgayBatDau() {
+    public String getNgayBatDau() {
         return NgayBatDau;
     }
 
-    public void setNgayBatDau(Date ngayBatDau) {
+    public void setNgayBatDau(String ngayBatDau) {
         NgayBatDau = ngayBatDau;
     }
 
-    public Date getNgayKetThuc() {
+    public String getNgayKetThuc() {
         return NgayKetThuc;
     }
 
-    public void setNgayKetThuc(Date ngayKetThuc) {
+    public void setNgayKetThuc(String ngayKetThuc) {
         NgayKetThuc = ngayKetThuc;
     }
 
-    public String getFielHopDong() {
-        return FielHopDong;
+    public String getHoTen() {
+        return HoTen;
+    }
+
+    public void setHoTen(String hoTen) {
+        HoTen = hoTen;
+    }
+
+    public String getTenPhong() {
+        return TenPhong;
+    }
+
+    public void setTenPhong(String tenPhong) {
+        TenPhong = tenPhong;
+    }
+
+    public String getFileHopDong() {
+        return FileHopDong;
     }
 
     public void setFielHopDong(String fielHopDong) {
-        FielHopDong = fielHopDong;
+        FileHopDong = fielHopDong;
+    }
+
+    public String getLinkDownLoad() {
+        return LinkDownLoad;
+    }
+
+    public void setLinkDownLoad(String linkDownLoad) {
+        LinkDownLoad = linkDownLoad;
     }
 }
