@@ -15,6 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QLNhaTro">
         <activity
+            android:name=".AddDetailInvoiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Detail.InvoiceDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".Detail.ContactDetailActivity"
             android:exported="false" />
         <activity

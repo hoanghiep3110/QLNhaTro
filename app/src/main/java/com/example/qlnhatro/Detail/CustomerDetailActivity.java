@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.qlnhatro.Model.Customer;
@@ -26,7 +27,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CustomerDetailActivity extends AppCompatActivity {
 
-    private EditText edt1, edt2, edt3, edt4, edt5;
+    private TextView edt1, edt2, edt3, edt4, edt5;
     private ImageView imgCMND;
     private Button btnSuaCTKH,btnThoatCTKH;
     private Intent intent;
@@ -42,7 +43,6 @@ public class CustomerDetailActivity extends AppCompatActivity {
         edt4 = findViewById(R.id.edtQueQuan);
         edt5 = findViewById(R.id.edtHKTT);
         imgCMND = findViewById(R.id.imgCMND);
-        btnSuaCTKH = findViewById(R.id.btnSuaCTKH);
         btnThoatCTKH = findViewById(R.id.btnThoatCTKH);
 
         intent = getIntent();
@@ -120,7 +120,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
         edt4.setText(customer.getQueQuan());
         edt5.setText(customer.getHKTT());
         Glide.with(CustomerDetailActivity.this)
-                .load("https://6880-2402-800-6312-d283-8168-7aba-d551-e9a1.ngrok.io" + customer.getSoCMND())
+                .load("http://quanlynhatro.somee.com" + customer.getSoCMND())
                 .into(imgCMND);
     }
     private void handleError(Throwable throwable) {

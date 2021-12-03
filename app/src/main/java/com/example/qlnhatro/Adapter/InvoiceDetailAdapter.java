@@ -5,11 +5,9 @@ import static com.example.qlnhatro.other.ShowNotifyUser.dismissProgressDialog;
 
 import android.app.Dialog;
 import android.content.Context;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,13 +19,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.qlnhatro.Detail.RoomDetailActivity;
-import com.example.qlnhatro.Fragment.RoomFragment;
+import com.example.qlnhatro.AddDetailInvoiceActivity;
+import com.example.qlnhatro.Detail.InvoiceDetailActivity;
+import com.example.qlnhatro.Model.ChiTietHoaDon;
 import com.example.qlnhatro.Model.Message;
-import com.example.qlnhatro.Model.Room;
 import com.example.qlnhatro.R;
 import com.example.qlnhatro.Service.ServiceAPI;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -40,55 +37,44 @@ import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
 
-    private ArrayList<Room> alRoom;
-    private Fragment context;
+public class InvoiceDetailAdapter extends RecyclerView.Adapter<InvoiceDetailAdapter.ViewHolder>{
 
-    public RoomAdapter(ArrayList<Room> alRoom, Fragment context) {
-        this.alRoom = alRoom;
+    private ArrayList<ChiTietHoaDon> alID;
+    private Context  context;
+
+    public InvoiceDetailAdapter(ArrayList<ChiTietHoaDon> alID, Context  context) {
+        this.alID = alID;
         this.context = context;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_room, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_invoice_detail, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.txtName.setText(alRoom.get(position).getTenPhong());
-        int b = alRoom.get(position).getTrangThai();
-        if (b == 1) {
-            holder.txtStatus.setText("ĐÃ CÓ NGƯỜI");
-            holder.txtStatus.setTextColor(Color.parseColor("#4CAF50"));
-        } else if(b == 0 ) {
-            holder.txtStatus.setText("PHÒNG ĐANG TRỐNG");
-            holder.txtStatus.setTextColor(Color.parseColor("#E81708"));
-        }else{
-            holder.txtStatus.setText("ĐANG SỬA CHỮA");
-            holder.txtStatus.setTextColor(Color.parseColor("#113CFC"));}
+        String tuNgay = alID.get(position).getTuNgay().split("T")[0];
+        String toiNgay = alID.get(position).getToiNgay().split("T")[0];
+        tuNgay = tuNgay.split("-")[2] +"/"+ tuNgay.split("-")[1] +"/" + tuNgay.split("-")[0] ;
+        toiNgay = toiNgay.split("-")[2] +"/"+ toiNgay.split("-")[1] +"/" + toiNgay.split("-")[0] ;
+        holder.txt1.setText(alID.get(position).getTenDichVu());
+        holder.txt2.setText("từ : " + tuNgay);
+        holder.txt3.setText("đến : " + toiNgay);
+        holder.txt4.setText(String.valueOf(alID.get(position).getThanhTien()) + " VND");
 
-        holder.btnEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = (holder.getAdapterPosition());
-                int id = alRoom.get(position).getIdPhong();
-                Intent intent = new Intent(context.getContext(), RoomDetailActivity.class);
-                intent.putExtra("id",id);
-                v.getContext().startActivity(intent);
-            }
-        });
+        int iddichvu = alID.get(position).getIdDichVu();
+        int idhoadon = alID.get(position).getIdHoaDon();
 
-        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+        holder.btn1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                openDialog();
-            }
-            private void openDialog() {
-                Dialog dialog = new Dialog(context.getContext());
+            public void onClick(View v) { openDiaLog(); }
+
+            private void openDiaLog() {
+                Dialog dialog = new Dialog(holder.itemView.getContext());
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog.setContentView(R.layout.confirm_delete);
                 Window window = dialog.getWindow();
@@ -104,20 +90,16 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
                 btnYes.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        int position = (holder.getAdapterPosition());
-                        int id = alRoom.get(position).getIdPhong();
-                        deleteRoom(id);
-
+                        deleteInvoice(idhoadon,iddichvu);
                     }
-
-                    private void deleteRoom(int id) {
+                    private void deleteInvoice(int id, int iddv) {
                         ServiceAPI requestInterface = new Retrofit.Builder()
                                 .baseUrl(BASE_Service)
                                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                                 .addConverterFactory(GsonConverterFactory.create())
                                 .build().create(ServiceAPI.class);
 
-                        new CompositeDisposable().add(requestInterface.DeleteRoom(id)
+                        new CompositeDisposable().add(requestInterface.DeleteInvoiceDetail(id,iddv)
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribeOn(Schedulers.io())
                                 .subscribe(this::handleResponse, this::handleError)
@@ -127,15 +109,16 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
                     private void handleResponse(Message message) {
                         dismissProgressDialog();
                         try {
-                            Toast.makeText(context.getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(holder.itemView.getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                             if (message.getStatus() == 1) {
-                                dialog.dismiss();
+                                Intent intent = new Intent(holder.itemView.getContext(), InvoiceDetailActivity.class);
+                                intent.putExtra("id", idhoadon);
+                                context.startActivity(intent);
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
-
                     private void handleError(Throwable throwable) {
                         dismissProgressDialog();
                     }
@@ -147,7 +130,6 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
                         dialog.dismiss();
                     }
                 });
-
                 dialog.show();
             }
         });
@@ -155,21 +137,21 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return alRoom.size();
+        return alID.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView txtName, txtStatus;
-        public ImageButton btnEdit, btnDelete;
-        public Context context;
+        public TextView txt1, txt2, txt3, txt4;
+        public ImageButton btn1;
 
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            txtName = itemView.findViewById(R.id.txtTenphong);
-            txtStatus = itemView.findViewById(R.id.txtTrangthai);
-            btnEdit = itemView.findViewById(R.id.btnEdit);
-            btnDelete = itemView.findViewById(R.id.btnDelete);
+        public ViewHolder(View itemview) {
+            super(itemview);
+            txt1 = itemView.findViewById(R.id.txtTendv);
+            txt2 = itemView.findViewById(R.id.txtNgay1);
+            txt3 = itemView.findViewById(R.id.txtNgay2);
+            txt4 = itemView.findViewById(R.id.txtThanhtien);
+            btn1 = itemview.findViewById(R.id.btnXoaCTHD);
         }
     }
 }

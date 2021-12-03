@@ -49,5 +49,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     // SweetAlert custom Dialog 1.6.2 by F0RIS
     implementation 'com.github.f0ris.sweetalert:library:1.6.2'
+    //custom spinner
+    implementation 'com.github.chivorns:smartmaterialspinner:1.5.0'
 
 }

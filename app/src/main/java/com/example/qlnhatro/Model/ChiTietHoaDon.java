@@ -1,75 +1,86 @@
 package com.example.qlnhatro.Model;
 
 public class ChiTietHoaDon {
-    private int idHoaDon,idService,chiSoCu,chiSoMoi,thanhTien;
-    private String date1,date2;
+    private int IdHoaDon,IdDichVu,ChiSoCu,ChiSoMoi,ThanhTien;
+    private String HoTen,TuNgay,ToiNgay,TenDichVu;
 
     public int getIdHoaDon() {
-        return idHoaDon;
+        return IdHoaDon;
     }
 
     public void setIdHoaDon(int idHoaDon) {
-        this.idHoaDon = idHoaDon;
+        IdHoaDon = idHoaDon;
     }
 
-    public int getIdService() {
-        return idService;
+    public int getIdDichVu() {
+        return IdDichVu;
     }
 
-    public void setIdService(int idService) {
-        this.idService = idService;
+    public void setIdDichVu(int idDichVu) {
+        IdDichVu = idDichVu;
     }
 
     public int getChiSoCu() {
-        return chiSoCu;
+        return ChiSoCu;
     }
 
     public void setChiSoCu(int chiSoCu) {
-        this.chiSoCu = chiSoCu;
+        ChiSoCu = chiSoCu;
     }
 
     public int getChiSoMoi() {
-        return chiSoMoi;
+        return ChiSoMoi;
     }
 
     public void setChiSoMoi(int chiSoMoi) {
-        this.chiSoMoi = chiSoMoi;
+        ChiSoMoi = chiSoMoi;
     }
 
     public int getThanhTien() {
-        return thanhTien;
+        return ThanhTien;
     }
 
     public void setThanhTien(int thanhTien) {
-        this.thanhTien = thanhTien;
+        ThanhTien = thanhTien;
     }
 
-    public String getDate1() {
-        return date1;
+    public String getHoTen() {
+        return HoTen;
     }
 
-    public void setDate1(String date1) {
-        this.date1 = date1;
+    public void setHoTen(String hoTen) {
+        HoTen = hoTen;
     }
 
-    public String getDate2() {
-        return date2;
+    public String getTuNgay() {
+        return TuNgay;
     }
 
-    public void setDate2(String date2) {
-        this.date2 = date2;
+    public void setTuNgay(String tuNgay) {
+        TuNgay = tuNgay;
     }
 
-    public ChiTietHoaDon(int idHoaDon, int idService, int chiSoCu, int chiSoMoi, int thanhTien, String date1, String date2) {
-        this.idHoaDon = idHoaDon;
-        this.idService = idService;
-        this.chiSoCu = chiSoCu;
-        this.chiSoMoi = chiSoMoi;
-        this.thanhTien = thanhTien;
-        this.date1 = date1;
-        this.date2 = date2;
+    public String getToiNgay() {
+        return ToiNgay;
     }
 
-    public ChiTietHoaDon() {
+    public void setToiNgay(String toiNgay) {
+        ToiNgay = toiNgay;
+    }
+
+    public String getTenDichVu() {
+        return TenDichVu;
+    }
+
+    public void setTenDichVu(String tenDichVu) {
+        TenDichVu = tenDichVu;
+    }
+
+    public ChiTietHoaDon(int idDichVu, String tuNgay, String toiNgay, int chiSoCu, int chiSoMoi) {
+        IdDichVu = idDichVu;
+        ChiSoCu = chiSoCu;
+        ChiSoMoi = chiSoMoi;
+        TuNgay = tuNgay;
+        ToiNgay = toiNgay;
     }
 }

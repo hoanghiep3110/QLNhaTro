@@ -56,7 +56,7 @@ public class CustomerFragment extends Fragment {
     private ArrayList<Customer> alCustomer;
     private RecyclerView rclCusList;
     private CustomerAdapter customerAdapter;
-    private FloatingActionButton btnAddCustommer;
+//    private FloatingActionButton btnAddCustommer;
 
     @Override
     public void onResume() {
@@ -69,16 +69,16 @@ public class CustomerFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.list_customer, container, false);
         rclCusList = view.findViewById(R.id.rclCusList);
-        btnAddCustommer = view.findViewById(R.id.btnAddCustommer);
+//        btnAddCustommer = view.findViewById(R.id.btnAddCustommer);
         alCustomer = new ArrayList<>();
         showProgressDialog(getActivity(), "Đang tải dữ liệu. Vui lòng chờ !");
         getCustomer();
-        btnAddCustommer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openDialog();
-            }
-        });
+//        btnAddCustommer.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                openDialog();
+//            }
+//        });
         return view;
     }
 
@@ -112,111 +112,111 @@ public class CustomerFragment extends Fragment {
         dismissProgressDialog();
     }
 
-    public void openDialog() {
-        Dialog dialog = new Dialog(getActivity());
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.addcustomer_dialog);
-        Window window = dialog.getWindow();
-        if (window == null) {
-            return;
-        }
-        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//    public void openDialog() {
+//        Dialog dialog = new Dialog(getActivity());
+//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        dialog.setContentView(R.layout.addcustomer_dialog);
+//        Window window = dialog.getWindow();
+//        if (window == null) {
+//            return;
+//        }
+//        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+//        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//
+//        EditText edtHoTen = dialog.findViewById(R.id.edtHoTen);
+//        EditText edtSDTKH = dialog.findViewById(R.id.edtSDTKH);
+//        EditText edtGioiTinh = dialog.findViewById(R.id.edtGioiTinh);
+//        EditText edtQueQuan = dialog.findViewById(R.id.edtQueQuan);
+//        EditText edtHKTT = dialog.findViewById(R.id.edtHKTT);
+//        ImageView showhinh = dialog.findViewById(R.id.showhinh);
+//        Button btnThemKH = dialog.findViewById(R.id.btnThemKH);
+//        Button btnThoatKH = dialog.findViewById(R.id.btnThoatKH);
+//        Button nhaphinh = dialog.findViewById(R.id.nhaphinh);
+//
+//        nhaphinh.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                nhapHinh();
+//            }
+//
+//            private void nhapHinh() {
+//                PermissionListener permissionlistener = new PermissionListener() {
+//                    @Override
+//                    public void onPermissionGranted() {
+//                        Toast.makeText(getActivity(), "Cấp quyền thành công !", Toast.LENGTH_SHORT).show();
+//                        showHinh();
+//                    }
+//
+//                    private void showHinh() {
+//                        TedBottomPicker.with(getActivity()).show( new TedBottomSheetDialogFragment.OnImageSelectedListener() {
+//                            @Override
+//                            public void onImageSelected(Uri uri) {
+//                                try {
+//                                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(),uri);
+//                                    showhinh.setImageBitmap(bitmap);
+//                                }catch(IOException e) {
+//                                    e.printStackTrace();
+//                                }
+//                            }
+//                        });
+//
+//                    }
+//                    @Override
+//                    public void onPermissionDenied(List<String> deniedPermissions) {
+//                        Toast.makeText(getActivity(), "Cấp quyền thất bại !\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+//                    }
+//                };
+//                TedPermission.create()
+//                        .setPermissionListener(permissionlistener)
+//                        .setDeniedMessage("Nếu bạn từ chối cấp quyền, bạn không thể dùng ứng dụng\n\nVui lòng cấp quyền tại [Cài đặt] > [Quyền]")
+//                        .setPermissions(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE)
+//                        .check();
+//            }
+//        });
+//
+//        btnThoatKH.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                dialog.dismiss();
+//            }
+//        });
 
-        EditText edtHoTen = dialog.findViewById(R.id.edtHoTen);
-        EditText edtSDTKH = dialog.findViewById(R.id.edtSDTKH);
-        EditText edtGioiTinh = dialog.findViewById(R.id.edtGioiTinh);
-        EditText edtQueQuan = dialog.findViewById(R.id.edtQueQuan);
-        EditText edtHKTT = dialog.findViewById(R.id.edtHKTT);
-        ImageView showhinh = dialog.findViewById(R.id.showhinh);
-        Button btnThemKH = dialog.findViewById(R.id.btnThemKH);
-        Button btnThoatKH = dialog.findViewById(R.id.btnThoatKH);
-        Button nhaphinh = dialog.findViewById(R.id.nhaphinh);
-
-        nhaphinh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                nhapHinh();
-            }
-
-            private void nhapHinh() {
-                PermissionListener permissionlistener = new PermissionListener() {
-                    @Override
-                    public void onPermissionGranted() {
-                        Toast.makeText(getActivity(), "Cấp quyền thành công !", Toast.LENGTH_SHORT).show();
-                        showHinh();
-                    }
-
-                    private void showHinh() {
-                        TedBottomPicker.with(getActivity()).show( new TedBottomSheetDialogFragment.OnImageSelectedListener() {
-                            @Override
-                            public void onImageSelected(Uri uri) {
-                                try {
-                                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(),uri);
-                                    showhinh.setImageBitmap(bitmap);
-                                }catch(IOException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        });
-
-                    }
-                    @Override
-                    public void onPermissionDenied(List<String> deniedPermissions) {
-                        Toast.makeText(getActivity(), "Cấp quyền thất bại !\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
-                    }
-                };
-                TedPermission.create()
-                        .setPermissionListener(permissionlistener)
-                        .setDeniedMessage("Nếu bạn từ chối cấp quyền, bạn không thể dùng ứng dụng\n\nVui lòng cấp quyền tại [Cài đặt] > [Quyền]")
-                        .setPermissions(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                        .check();
-            }
-        });
-
-        btnThoatKH.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
-
-        btnThemKH.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Customer customer = new Customer(edtHoTen.getText().toString(), edtSDTKH.getText().toString(), edtGioiTinh.getText().toString(),
-                        edtQueQuan.getText().toString(), edtHKTT.getText().toString());
-                addCustomer(customer);
-            }
-
-            private void addCustomer(Customer customer) {
-                ServiceAPI requestInterface = new Retrofit.Builder()
-                        .baseUrl(BASE_Service)
-                        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .build().create(ServiceAPI.class);
-
-                new CompositeDisposable().add(requestInterface.AddCustomer(customer)
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeOn(Schedulers.io())
-                        .subscribe(this::handleResponse, this::handleError)
-                );
-            }
-            private void handleResponse(Message message) {
-                dismissProgressDialog();
-                try {
-                    Toast.makeText(getActivity(), message.getNotification(), Toast.LENGTH_SHORT).show();
-                    if (message.getStatus() == 1) {
-                        dialog.dismiss();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            private void handleError(Throwable throwable) {
-                dismissProgressDialog();
-            }
-        });
-        dialog.show();
-    }
+//        btnThemKH.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Customer customer = new Customer(edtHoTen.getText().toString(), edtSDTKH.getText().toString(), edtGioiTinh.getText().toString(),
+//                        edtQueQuan.getText().toString(), edtHKTT.getText().toString());
+//                addCustomer(customer);
+//            }
+//
+//            private void addCustomer(Customer customer) {
+//                ServiceAPI requestInterface = new Retrofit.Builder()
+//                        .baseUrl(BASE_Service)
+//                        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//                        .addConverterFactory(GsonConverterFactory.create())
+//                        .build().create(ServiceAPI.class);
+//
+//                new CompositeDisposable().add(requestInterface.AddCustomer(customer)
+//                        .observeOn(AndroidSchedulers.mainThread())
+//                        .subscribeOn(Schedulers.io())
+//                        .subscribe(this::handleResponse, this::handleError)
+//                );
+//            }
+//            private void handleResponse(Message message) {
+//                dismissProgressDialog();
+//                try {
+//                    Toast.makeText(getActivity(), message.getNotification(), Toast.LENGTH_SHORT).show();
+//                    if (message.getStatus() == 1) {
+//                        dialog.dismiss();
+//                    }
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            private void handleError(Throwable throwable) {
+//                dismissProgressDialog();
+//            }
+//        });
+//        dialog.show();
+//    }
 }

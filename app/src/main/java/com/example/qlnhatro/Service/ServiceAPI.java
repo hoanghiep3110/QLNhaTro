@@ -1,8 +1,10 @@
 package com.example.qlnhatro.Service;
 
 import com.example.qlnhatro.Model.Accounts;
+import com.example.qlnhatro.Model.ChiTietHoaDon;
 import com.example.qlnhatro.Model.Customer;
 import com.example.qlnhatro.Model.Contact;
+import com.example.qlnhatro.Model.HoaDonDichVu;
 import com.example.qlnhatro.Model.Message;
 import com.example.qlnhatro.Model.Room;
 import com.example.qlnhatro.Model.Service;
@@ -19,7 +21,8 @@ import retrofit2.http.Query;
 
 
 public interface ServiceAPI {
-    String BASE_Service = "https://6880-2402-800-6312-d283-8168-7aba-d551-e9a1.ngrok.io/";
+//    String BASE_Service = "https://130c-2402-800-6312-c587-c01b-b840-239c-5a2.ngrok.io/";
+    String BASE_Service = "http://quanlynhatro.somee.com/";
 
     //-----------------------------------------------------------------------//
     @GET("api/TAIKHOAN")
@@ -89,4 +92,21 @@ public interface ServiceAPI {
     @GET("api/THUEPHONG")
     Observable<Contact> GetDetailContact(@Query("id") int id);
 
+    //------------------------------------------------------------------------//
+
+    //api hoa don
+    @GET("api/HOADON")
+    Observable<ArrayList<HoaDonDichVu>> GetAllInvoice();
+
+    //------------------------------------------------------------------------//
+
+    //api chi tiet hoa don
+    @GET("api/CHITIETHOADON")
+    Observable<ArrayList<ChiTietHoaDon>> GetDetailInvoice(@Query("id") int id);
+
+    @POST("api/CHITIETHOADON")
+    Observable<Message> AddInvoice(@Query("id") int id, @Body ChiTietHoaDon chiTietHoaDon);
+
+    @DELETE("api/CHITIETHOADON")
+    Observable<Message> DeleteInvoiceDetail(@Query("idhoadon") int idhoadon, @Query("iddichvu") int iddichvu);
 }

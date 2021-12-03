@@ -9,6 +9,11 @@ public class Service {
         TenDichVu = tenDichVu;
     }
 
+    @Override
+    public String toString() {
+        return TenDichVu;
+    }
+
     private int DonGia;
 
     public Service(String tenDichVu, int donGia) {

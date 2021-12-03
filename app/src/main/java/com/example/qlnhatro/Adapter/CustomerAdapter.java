@@ -14,6 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,8 +50,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_item_customer, parent, false);
+        View view = LayoutInflater.from(parent.getContext()) .inflate(R.layout.list_item_customer, parent, false);
         return new ViewHolder(view);
     }
 
@@ -58,6 +58,12 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.txtTen.setText(alCus.get(position).getHoTen());
         holder.txtGioitinh.setText(alCus.get(position).getGioiTinh());
+        String gioitinh = alCus.get(position).getGioiTinh().toLowerCase();
+        if(gioitinh.equals("nam")){
+            holder.img.setImageResource(R.drawable.nam);
+        }else{
+            holder.img.setImageResource(R.drawable.nu);
+        }
 
         holder.btnSuaKhach.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,6 +151,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
 
         public TextView txtTen, txtGioitinh;
         public ImageButton btnSuaKhach, btnXoaKhach;
+        public ImageView img;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -152,6 +159,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
             txtGioitinh = itemView.findViewById(R.id.txtGioitinh);
             btnSuaKhach = itemView.findViewById(R.id.btnSuaKhach);
             btnXoaKhach = itemView.findViewById(R.id.btnXoaKhach);
+            img = itemView.findViewById(R.id.hinhgioitinh);
 
         };
     }

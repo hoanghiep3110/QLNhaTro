@@ -1,67 +1,73 @@
 package com.example.qlnhatro.Model;
 
 public class HoaDonDichVu {
-    private int idHoaDon,idUser,idRoom,idCustomer,tienThanhToan;
-    private String status;
+    private int IdHoaDon,IdPhong,IdKhachHang,TienThanhToan;
+    private String TenPhong,HoTen;
+    private boolean TrangThaiThanhToan;
+
+    public HoaDonDichVu(int idPhong, int idKhachHang, int tienThanhToan, String tenPhong, String hoTen, boolean trangThaiThanhToan) {
+        IdPhong = idPhong;
+        IdKhachHang = idKhachHang;
+        TienThanhToan = tienThanhToan;
+        TenPhong = tenPhong;
+        HoTen = hoTen;
+        TrangThaiThanhToan = trangThaiThanhToan;
+    }
 
     public int getIdHoaDon() {
-        return idHoaDon;
+        return IdHoaDon;
     }
 
     public void setIdHoaDon(int idHoaDon) {
-        this.idHoaDon = idHoaDon;
+        IdHoaDon = idHoaDon;
     }
 
-    public int getIdUser() {
-        return idUser;
+    public int getIdPhong() {
+        return IdPhong;
     }
 
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
+    public void setIdPhong(int idPhong) {
+        IdPhong = idPhong;
     }
 
-    public int getIdRoom() {
-        return idRoom;
+    public int getIdKhachHang() {
+        return IdKhachHang;
     }
 
-    public void setIdRoom(int idRoom) {
-        this.idRoom = idRoom;
-    }
-
-    public int getIdCustomer() {
-        return idCustomer;
-    }
-
-    public void setIdCustomer(int idCustomer) {
-        this.idCustomer = idCustomer;
+    public void setIdKhachHang(int idKhachHang) {
+        IdKhachHang = idKhachHang;
     }
 
     public int getTienThanhToan() {
-        return tienThanhToan;
+        return TienThanhToan;
     }
 
     public void setTienThanhToan(int tienThanhToan) {
-        this.tienThanhToan = tienThanhToan;
+        TienThanhToan = tienThanhToan;
     }
 
-    public String getStatus() {
-        return status;
+    public String getTenPhong() {
+        return TenPhong;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setTenPhong(String tenPhong) {
+        TenPhong = tenPhong;
     }
 
-    public HoaDonDichVu(int idHoaDon, int idUser, int idRoom, int idCustomer, int tienThanhToan, String status) {
-        this.idHoaDon = idHoaDon;
-        this.idUser = idUser;
-        this.idRoom = idRoom;
-        this.idCustomer = idCustomer;
-        this.tienThanhToan = tienThanhToan;
-        this.status = status;
+    public String getHoTen() {
+        return HoTen;
     }
 
-    public HoaDonDichVu() {
+    public void setHoTen(String hoTen) {
+        HoTen = hoTen;
+    }
+
+    public boolean isTrangThaiThanhToan() {
+        return TrangThaiThanhToan;
+    }
+
+    public void setTrangThaiThanhToan(boolean trangThaiThanhToan) {
+        TrangThaiThanhToan = trangThaiThanhToan;
     }
 }
 
