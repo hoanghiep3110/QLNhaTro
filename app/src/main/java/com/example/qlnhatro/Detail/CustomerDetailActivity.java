@@ -120,7 +120,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
         edt4.setText(customer.getQueQuan());
         edt5.setText(customer.getHKTT());
         Glide.with(CustomerDetailActivity.this)
-                .load("http://quanlynhatro.somee.com" + customer.getSoCMND())
+                .load("https://nhatro3h.somee.com" + customer.getSoCMND())
                 .into(imgCMND);
     }
     private void handleError(Throwable throwable) {

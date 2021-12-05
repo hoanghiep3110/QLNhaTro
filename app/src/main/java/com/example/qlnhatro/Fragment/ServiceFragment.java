@@ -25,6 +25,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.qlnhatro.Adapter.ServiceAdapter;
+import com.example.qlnhatro.AddDetailInvoiceActivity;
 import com.example.qlnhatro.Model.Message;
 import com.example.qlnhatro.Model.Service;
 import com.example.qlnhatro.R;
@@ -140,8 +141,12 @@ public class ServiceFragment extends Fragment {
         btnThemDichVu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Service service = new Service(edtTenDichVu.getText().toString(), Integer.parseInt(edtDonGia.getText().toString()));
-                addService(service);
+                if(edtTenDichVu.getText().toString().equals("") || edtDonGia.getText().toString().equals("")){
+                    Toast.makeText(getActivity(), "Vui lòng nhập đầy đủ thông tin !", Toast.LENGTH_LONG).show();
+                } else {
+                    Service service = new Service(edtTenDichVu.getText().toString(), Integer.parseInt(edtDonGia.getText().toString()));
+                    addService(service);
+                }
             }
 
             private void addService(Service service) {

@@ -19,9 +19,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.qlnhatro.Adapter.ContactAdapter;
+import com.example.qlnhatro.Adapter.InvoiceAdapter;
 import com.example.qlnhatro.Adapter.InvoiceDetailAdapter;
 import com.example.qlnhatro.AddDetailInvoiceActivity;
 import com.example.qlnhatro.Fragment.ContactFragment;
+import com.example.qlnhatro.Fragment.InvoiceFragment;
 import com.example.qlnhatro.Model.ChiTietHoaDon;
 import com.example.qlnhatro.Model.Contact;
 import com.example.qlnhatro.R;
@@ -46,7 +48,7 @@ public class InvoiceDetailActivity extends AppCompatActivity {
     private Context context;
     private int id;
     private ArrayList<ChiTietHoaDon> listtest = new ArrayList<ChiTietHoaDon>();
-    private FloatingActionButton btnAddID;
+    private FloatingActionButton btnAddID, btnThoatID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,7 @@ public class InvoiceDetailActivity extends AppCompatActivity {
 
         rclIDList = findViewById(R.id.rclInvoiceDetailList);
         btnAddID = findViewById(R.id.btnAddID);
+        btnThoatID = findViewById(R.id.btnThoatID);
         intent = getIntent();
         id = intent.getIntExtra("id", 0);
         showProgressDialog(InvoiceDetailActivity.this, "Đang tải dữ liệu. Vui lòng chờ !");
@@ -65,6 +68,14 @@ public class InvoiceDetailActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(InvoiceDetailActivity.this, AddDetailInvoiceActivity.class);
                 intent.putExtra("id",id);
+                startActivity(intent);
+            }
+        });
+
+        btnThoatID.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InvoiceDetailActivity.this, InvoiceFragment.class);
                 startActivity(intent);
             }
         });

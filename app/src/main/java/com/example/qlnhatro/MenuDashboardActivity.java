@@ -20,7 +20,6 @@ import android.widget.TextView;
 
 import com.example.qlnhatro.Fragment.ContactFragment;
 import com.example.qlnhatro.Fragment.CustomerFragment;
-import com.example.qlnhatro.Fragment.HomeFragment;
 import com.example.qlnhatro.Fragment.InvoiceFragment;
 import com.example.qlnhatro.Fragment.RoomFragment;
 import com.example.qlnhatro.Fragment.ServiceFragment;

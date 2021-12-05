@@ -22,7 +22,7 @@ import retrofit2.http.Query;
 
 public interface ServiceAPI {
 //    String BASE_Service = "https://130c-2402-800-6312-c587-c01b-b840-239c-5a2.ngrok.io/";
-    String BASE_Service = "http://quanlynhatro.somee.com/";
+    String BASE_Service = "https://nhatro3h.somee.com/";
 
     //-----------------------------------------------------------------------//
     @GET("api/TAIKHOAN")

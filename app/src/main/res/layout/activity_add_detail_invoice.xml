@@ -21,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:layout_marginTop="31dp"
         android:padding="16dp">
 
         <TextView
@@ -42,13 +43,13 @@
             android:background="@drawable/botronedittext"
             android:backgroundTint="@color/white"
             android:layout_weight="1"
-            app:smsp_multilineError="false"
-            app:smsp_selectedItemListColor="#FF5252" />
+             />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:layout_marginTop="17dp"
         android:weightSum="5"
         android:padding="16dp">
 
@@ -87,6 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:layout_marginTop="17dp"
         android:weightSum="5"
         android:padding="16dp">
 
@@ -125,6 +127,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:layout_marginTop="17dp"
         android:padding="16dp">
 
         <TextView
@@ -150,6 +153,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:layout_marginTop="17dp"
         android:padding="16dp">
 
         <TextView
@@ -177,6 +181,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="10dp"
         android:paddingLeft="10dp"
+        android:layout_marginTop="28dp"
         android:paddingRight="10dp"
         android:orientation="horizontal">
 

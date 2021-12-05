@@ -98,12 +98,23 @@ public class AddDetailInvoiceActivity extends AppCompatActivity {
             }
         });
 
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+
+            }
+        });
+
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon(dichvu,edt2.getText().toString(),edt3.getText().toString(),Integer.parseInt(edt4.getText().toString()),Integer.parseInt(edt5.getText().toString()));
-                addInvoiceDetail(id, chiTietHoaDon);
+                if(edt2.getText().toString().equals("") || edt3.getText().toString().equals("") || edt4.getText().toString().equals("") || edt5.getText().toString().equals("")){
+                    Toast.makeText(AddDetailInvoiceActivity.this, "Vui lòng nhập đầy đủ thông tin !", Toast.LENGTH_LONG).show();
+                }else {
+                    ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon(dichvu, edt2.getText().toString(), edt3.getText().toString(), Integer.parseInt(edt4.getText().toString()), Integer.parseInt(edt5.getText().toString()));
+                    addInvoiceDetail(id, chiTietHoaDon);
+                }
             }
 
             private void addInvoiceDetail(int id, ChiTietHoaDon chiTietHoaDon) {
