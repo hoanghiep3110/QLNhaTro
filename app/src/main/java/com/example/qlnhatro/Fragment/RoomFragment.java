@@ -4,7 +4,6 @@ import static com.example.qlnhatro.Service.ServiceAPI.BASE_Service;
 import static com.example.qlnhatro.other.ShowNotifyUser.dismissProgressDialog;
 import static com.example.qlnhatro.other.ShowNotifyUser.showProgressDialog;
 
-import android.Manifest;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;

@@ -25,7 +25,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.qlnhatro.Detail.RoomDetailActivity;
-import com.example.qlnhatro.Fragment.RoomFragment;
 import com.example.qlnhatro.Model.Message;
 import com.example.qlnhatro.Model.Room;
 import com.example.qlnhatro.R;

@@ -4,28 +4,18 @@ import static com.example.qlnhatro.Service.ServiceAPI.BASE_Service;
 import static com.example.qlnhatro.other.ShowNotifyUser.dismissProgressDialog;
 import static com.example.qlnhatro.other.ShowNotifyUser.showProgressDialog;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.qlnhatro.Adapter.ContactAdapter;
-import com.example.qlnhatro.Adapter.InvoiceAdapter;
 import com.example.qlnhatro.Adapter.InvoiceDetailAdapter;
 import com.example.qlnhatro.AddDetailInvoiceActivity;
-import com.example.qlnhatro.Fragment.ContactFragment;
 import com.example.qlnhatro.Fragment.InvoiceFragment;
 import com.example.qlnhatro.Model.ChiTietHoaDon;
-import com.example.qlnhatro.Model.Contact;
 import com.example.qlnhatro.R;
 import com.example.qlnhatro.Service.ServiceAPI;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -45,7 +35,6 @@ public class InvoiceDetailActivity extends AppCompatActivity {
     private ArrayList<ChiTietHoaDon> listID;
     private RecyclerView rclIDList;
     private InvoiceDetailAdapter invoiceDetailAdapter;
-    private Context context;
     private int id;
     private ArrayList<ChiTietHoaDon> listtest = new ArrayList<ChiTietHoaDon>();
     private FloatingActionButton btnAddID, btnThoatID;
@@ -75,8 +64,9 @@ public class InvoiceDetailActivity extends AppCompatActivity {
         btnThoatID.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InvoiceDetailActivity.this, InvoiceFragment.class);
-                startActivity(intent);
+//                Intent intent = new Intent(InvoiceDetailActivity.this, InvoiceFragment.class);
+//                intent.putExtra()
+                finish();
             }
         });
     }

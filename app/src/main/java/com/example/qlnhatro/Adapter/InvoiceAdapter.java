@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.qlnhatro.Detail.CustomerDetailActivity;
 import com.example.qlnhatro.Detail.InvoiceDetailActivity;
 import com.example.qlnhatro.Model.HoaDonDichVu;
 import com.example.qlnhatro.R;

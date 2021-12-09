@@ -10,12 +10,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.example.qlnhatro.Model.Contact;
-import com.example.qlnhatro.Model.Room;
 import com.example.qlnhatro.R;
 import com.example.qlnhatro.Service.ServiceAPI;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;

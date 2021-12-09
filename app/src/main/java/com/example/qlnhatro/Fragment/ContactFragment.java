@@ -16,9 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.qlnhatro.Adapter.ContactAdapter;;
-import com.example.qlnhatro.Adapter.CustomerAdapter;
 import com.example.qlnhatro.Model.Contact;
-import com.example.qlnhatro.Model.Customer;
 import com.example.qlnhatro.R;
 import com.example.qlnhatro.Service.ServiceAPI;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;

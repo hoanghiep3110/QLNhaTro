@@ -3,6 +3,7 @@ package com.example.qlnhatro.Adapter;
 import static com.example.qlnhatro.Service.ServiceAPI.BASE_Service;
 import static com.example.qlnhatro.other.ShowNotifyUser.dismissProgressDialog;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -21,7 +22,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.qlnhatro.AddDetailInvoiceActivity;
 import com.example.qlnhatro.Detail.InvoiceDetailActivity;
 import com.example.qlnhatro.Model.ChiTietHoaDon;
 import com.example.qlnhatro.Model.Message;
@@ -64,7 +64,7 @@ public class InvoiceDetailAdapter extends RecyclerView.Adapter<InvoiceDetailAdap
         holder.txt1.setText(alID.get(position).getTenDichVu());
         holder.txt2.setText("từ : " + tuNgay);
         holder.txt3.setText("đến : " + toiNgay);
-        holder.txt4.setText(String.valueOf(alID.get(position).getThanhTien()) + " VND");
+        holder.txt4.setText(String.valueOf(alID.get(position).getThanhTien()) + " đ");
 
         int iddichvu = alID.get(position).getIdDichVu();
         int idhoadon = alID.get(position).getIdHoaDon();
@@ -114,6 +114,7 @@ public class InvoiceDetailAdapter extends RecyclerView.Adapter<InvoiceDetailAdap
                                 Intent intent = new Intent(holder.itemView.getContext(), InvoiceDetailActivity.class);
                                 intent.putExtra("id", idhoadon);
                                 context.startActivity(intent);
+                                ((Activity) context).finish();
                             }
                         } catch (Exception e) {
                             e.printStackTrace();

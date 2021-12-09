@@ -4,23 +4,10 @@ import static com.example.qlnhatro.Service.ServiceAPI.BASE_Service;
 import static com.example.qlnhatro.other.ShowNotifyUser.dismissProgressDialog;
 import static com.example.qlnhatro.other.ShowNotifyUser.showProgressDialog;
 
-import android.Manifest;
-import android.app.Dialog;
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,21 +17,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.qlnhatro.Adapter.CustomerAdapter;
 import com.example.qlnhatro.Model.Customer;
-import com.example.qlnhatro.Model.Message;
 import com.example.qlnhatro.R;
 import com.example.qlnhatro.Service.ServiceAPI;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.gun0912.tedpermission.PermissionListener;
-import com.gun0912.tedpermission.normal.TedPermission;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
-import gun0912.tedbottompicker.TedBottomPicker;
-import gun0912.tedbottompicker.TedBottomSheetDialogFragment;
-import gun0912.tedbottompicker.TedRxBottomPicker;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;

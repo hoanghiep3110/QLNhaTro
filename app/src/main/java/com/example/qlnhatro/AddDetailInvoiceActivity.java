@@ -4,7 +4,6 @@ import static com.example.qlnhatro.Service.ServiceAPI.BASE_Service;
 import static com.example.qlnhatro.other.ShowNotifyUser.dismissProgressDialog;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -19,10 +18,7 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.qlnhatro.Adapter.ServiceAdapter;
 import com.example.qlnhatro.Detail.InvoiceDetailActivity;
-import com.example.qlnhatro.Fragment.ServiceFragment;
-import com.example.qlnhatro.Model.Accounts;
 import com.example.qlnhatro.Model.ChiTietHoaDon;
 import com.example.qlnhatro.Model.Message;
 import com.example.qlnhatro.Model.Service;
@@ -31,7 +27,6 @@ import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -102,7 +97,6 @@ public class AddDetailInvoiceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-
             }
         });
 
@@ -137,7 +131,9 @@ public class AddDetailInvoiceActivity extends AppCompatActivity {
                     if (message.getStatus() == 1) {
                         Intent intent = new Intent(AddDetailInvoiceActivity.this, InvoiceDetailActivity.class);
                         intent.putExtra("id", id);
+                        finish();
                         startActivity(intent);
+
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

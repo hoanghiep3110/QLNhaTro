@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.qlnhatro.Helper.MD5Hash;
 import com.example.qlnhatro.Model.Accounts;
