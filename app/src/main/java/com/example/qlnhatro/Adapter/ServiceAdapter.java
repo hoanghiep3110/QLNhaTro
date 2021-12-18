@@ -19,9 +19,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.qlnhatro.Detail.ServiceDetailActivity;
+import com.example.qlnhatro.Fragment.ServiceFragment;
 import com.example.qlnhatro.Model.Message;
 import com.example.qlnhatro.Model.Service;
 import com.example.qlnhatro.R;
@@ -56,7 +58,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.txtTendichvu.setText(alService.get(position).getTenDichVu());
-        holder.txtDongia.setText(String.valueOf(alService.get(position).getDonGia()) + " VND");
+        holder.txtDongia.setText(alService.get(position).getDonGia() + " VND");
 
         holder.btnSua.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,11 +118,19 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
                         try {
                             Toast.makeText(context.getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                             if (message.getStatus() == 1) {
+                                replaceFragment(new ServiceFragment());
                                 dialog.dismiss();
+
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
+                    }
+
+                    private void replaceFragment(Fragment fragment){
+                        FragmentTransaction transaction = context.getActivity().getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.content_frame,fragment);
+                        transaction.commit();
                     }
 
                     private void handleError(Throwable throwable) {
@@ -128,6 +138,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
                     }
 
                 });
+
 
                 btnNo.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -156,6 +167,6 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
             txtDongia = itemView.findViewById(R.id.txtDongia);
             btnSua = itemView.findViewById(R.id.btnEditService);
             btnXoa = itemView.findViewById(R.id.btnDeleteService);
-        };
+        }
     }
 }

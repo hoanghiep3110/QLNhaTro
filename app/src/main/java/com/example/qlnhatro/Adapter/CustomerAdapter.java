@@ -20,9 +20,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.qlnhatro.Detail.CustomerDetailActivity;
+import com.example.qlnhatro.Fragment.CustomerFragment;
 import com.example.qlnhatro.Model.Customer;
 import com.example.qlnhatro.Model.Message;
 import com.example.qlnhatro.R;
@@ -121,12 +123,20 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
                         try {
                             Toast.makeText(context.getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                             if (message.getStatus() == 1) {
+                                replaceFragment(new CustomerFragment());
                                 dialog.dismiss();
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
+
+                    private void replaceFragment(Fragment fragment){
+                        FragmentTransaction transaction = context.getActivity().getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.content_frame,fragment);
+                        transaction.commit();
+                    }
+
                     private void handleError(Throwable throwable) {
                         dismissProgressDialog();
                     }

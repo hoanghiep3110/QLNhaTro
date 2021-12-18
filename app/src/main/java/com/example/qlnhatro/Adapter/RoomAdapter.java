@@ -22,9 +22,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.qlnhatro.Detail.RoomDetailActivity;
+import com.example.qlnhatro.Fragment.RoomFragment;
 import com.example.qlnhatro.Model.Message;
 import com.example.qlnhatro.Model.Room;
 import com.example.qlnhatro.R;
@@ -103,10 +105,22 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
                 btnYes.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        int position = (holder.getAdapterPosition());
-                        int id = alRoom.get(position).getIdPhong();
-                        deleteRoom(id);
+                        if(b == 1){
+                            Toast.makeText(context.getContext(), "Phòng đã có người không thể xóa !", Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                        }else{
+                            int position = (holder.getAdapterPosition());
+                            int id = alRoom.get(position).getIdPhong();
+                            deleteRoom(id);
+                            replaceFragment(new RoomFragment());
+                            dialog.dismiss();
+                        }
+                    }
 
+                    private void replaceFragment(Fragment fragment){
+                        FragmentTransaction transaction = context.getActivity().getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.content_frame,fragment);
+                        transaction.commit();
                     }
 
                     private void deleteRoom(int id) {

@@ -5,6 +5,7 @@ import static com.example.qlnhatro.other.ShowNotifyUser.dismissProgressDialog;
 import static com.example.qlnhatro.other.ShowNotifyUser.showProgressDialog;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -21,10 +22,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.qlnhatro.Adapter.ServiceAdapter;
+import com.example.qlnhatro.MenuDashboardActivity;
 import com.example.qlnhatro.Model.Message;
 import com.example.qlnhatro.Model.Service;
 import com.example.qlnhatro.R;
@@ -145,7 +148,15 @@ public class ServiceFragment extends Fragment {
                 } else {
                     Service service = new Service(edtTenDichVu.getText().toString(), Integer.parseInt(edtDonGia.getText().toString()));
                     addService(service);
+                    replaceFragment(new ServiceFragment());
+                    dialog.dismiss();
                 }
+            }
+
+            private void replaceFragment(Fragment fragment){
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.content_frame,fragment);
+                transaction.commit();
             }
 
             private void addService(Service service) {
@@ -166,7 +177,7 @@ public class ServiceFragment extends Fragment {
                 try {
                     Toast.makeText(getActivity(), message.getNotification(), Toast.LENGTH_SHORT).show();
                     if (message.getStatus() == 1) {
-                        dialog.dismiss();
+                        startActivity(new Intent(getActivity(), MenuDashboardActivity.class));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
